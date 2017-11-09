@@ -40,6 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="eCustomer.cs" />
+    <Compile Include="eDisk.cs" />
+    <Compile Include="eDiskRental.cs" />
+    <Compile Include="eLateCharge.cs" />
+    <Compile Include="eRental.cs" />
+    <Compile Include="eReservation.cs" />
+    <Compile Include="eReservationTitle.cs" />
+    <Compile Include="eReturn.cs" />
+    <Compile Include="eTitle.cs" />
+    <Compile Include="eUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
