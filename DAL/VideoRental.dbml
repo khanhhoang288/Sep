@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VideoRental" Class="VideoRentalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HOANG-PC;Initial Catalog=VideoRental;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="VideoRentalConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_Customer" Member="tbl_Customers">
+    <Type Name="tbl_Customer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="tbl_Customer_tbl_LateCharge" Member="tbl_LateCharges" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_LateCharge" />
+      <Association Name="tbl_Customer_tbl_Rental" Member="tbl_Rentals" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Rental" />
+      <Association Name="tbl_Customer_tbl_Reservation" Member="tbl_Reservations" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Reservation" />
+      <Association Name="tbl_Customer_tbl_Return" Member="tbl_Returns" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Return" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_User" Member="tbl_Users">
+    <Type Name="tbl_User">
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Disk" Member="tbl_Disks">
+    <Type Name="tbl_Disk">
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TitleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiskStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiskCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="tbl_Disk_tbl_DiskRental" Member="tbl_DiskRentals" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_DiskRental" />
+      <Association Name="tbl_Disk_tbl_LateCharge" Member="tbl_LateCharges" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_LateCharge" />
+      <Association Name="tbl_Disk_tbl_Return" Member="tbl_Returns" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_Return" />
+      <Association Name="tbl_Title_tbl_Disk" Member="tbl_Title" ThisKey="TitleID" OtherKey="TitleID" Type="tbl_Title" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DiskRental" Member="tbl_DiskRentals">
+    <Type Name="tbl_DiskRental">
+      <Column Name="RentalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="tbl_Disk_tbl_DiskRental" Member="tbl_Disk" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_Disk" IsForeignKey="true" />
+      <Association Name="tbl_Rental_tbl_DiskRental" Member="tbl_Rental" ThisKey="RentalID" OtherKey="RentalID" Type="tbl_Rental" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_LateCharge" Member="tbl_LateCharges">
+    <Type Name="tbl_LateCharge">
+      <Column Name="LateChargeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LateCharge" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="tbl_Customer_tbl_LateCharge" Member="tbl_Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Customer" IsForeignKey="true" />
+      <Association Name="tbl_Disk_tbl_LateCharge" Member="tbl_Disk" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_Disk" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Rental" Member="tbl_Rentals">
+    <Type Name="tbl_Rental">
+      <Column Name="RentalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RentalDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_Rental_tbl_DiskRental" Member="tbl_DiskRentals" ThisKey="RentalID" OtherKey="RentalID" Type="tbl_DiskRental" />
+      <Association Name="tbl_Customer_tbl_Rental" Member="tbl_Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Reservation" Member="tbl_Reservations">
+    <Type Name="tbl_Reservation">
+      <Column Name="ReservationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_Reservation_tbl_ReservationTitle" Member="tbl_ReservationTitles" ThisKey="ReservationID" OtherKey="ReservationID" Type="tbl_ReservationTitle" />
+      <Association Name="tbl_Customer_tbl_Reservation" Member="tbl_Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_ReservationTitle" Member="tbl_ReservationTitles">
+    <Type Name="tbl_ReservationTitle">
+      <Column Name="ReservationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="tbl_Reservation_tbl_ReservationTitle" Member="tbl_Reservation" ThisKey="ReservationID" OtherKey="ReservationID" Type="tbl_Reservation" IsForeignKey="true" />
+      <Association Name="tbl_Title_tbl_ReservationTitle" Member="tbl_Title" ThisKey="TitleID" OtherKey="TitleID" Type="tbl_Title" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Return" Member="tbl_Returns">
+    <Type Name="tbl_Return">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="tbl_Customer_tbl_Return" Member="tbl_Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Customer" IsForeignKey="true" />
+      <Association Name="tbl_Disk_tbl_Return" Member="tbl_Disk" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_Disk" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Title" Member="tbl_Titles">
+    <Type Name="tbl_Title">
+      <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TitleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RentalPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RentalCharge" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TitleStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_Title_tbl_Disk" Member="tbl_Disks" ThisKey="TitleID" OtherKey="TitleID" Type="tbl_Disk" />
+      <Association Name="tbl_Title_tbl_ReservationTitle" Member="tbl_ReservationTitles" ThisKey="TitleID" OtherKey="TitleID" Type="tbl_ReservationTitle" />
+    </Type>
+  </Table>
+</Database>
