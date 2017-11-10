@@ -18,7 +18,7 @@ namespace BLL
             db = new VideoRentalDataContext();
         }
 
-        public List<eDisk> getAllDisk()
+        public List<eDisk> getAllDisl()
         {
             List<eDisk> ls = new List<eDisk>();
 
@@ -29,13 +29,12 @@ namespace BLL
                 disk.DiskID = item.DiskID;
                 disk.TitleID = Convert.ToInt32(item.TitleID);
                 disk.DiskStatus = item.DiskStatus;
-                disk.DiskCode = item.DiskCode;
+                disk.DiskCode = disk.DiskCode;
 
                 ls.Add(disk);
             }
             return ls;
         }
-
 
         public List<eDisk> getDiskByTitleID(int titleid)
         {

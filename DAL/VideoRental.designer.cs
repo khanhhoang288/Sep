@@ -614,7 +614,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiskCode", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiskCode", DbType="VarChar(50)")]
 		public string DiskCode
 		{
 			get

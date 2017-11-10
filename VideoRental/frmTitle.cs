@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using Entities;
 
+
 namespace VideoRental
 {
     public partial class frmTitle : Form
@@ -18,14 +19,12 @@ namespace VideoRental
         TitleBLL titlebll;
         public frmTitle()
         {
+            InitializeComponent();
             listtitle = new List<eTitle>();
             titlebll = new TitleBLL();
 
             listtitle = titlebll.getAllTitle();
             LoadDataGridView(dgvTitle, listtitle);
-
-            InitializeComponent();
-            
         }
 
         private void frmTitle_Load(object sender, EventArgs e)
@@ -108,11 +107,6 @@ namespace VideoRental
             titlebll.updateTitle(temp);
 
             LoadDataGridView(dgvTitle, titlebll.getAllTitle());
-        }
-
-        private void dgvTitle_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
