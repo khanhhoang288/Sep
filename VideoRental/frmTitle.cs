@@ -75,5 +75,10 @@ namespace VideoRental
                 txtQuantity.Text = e.Row.Cells["Quantity"].Value.ToString();
             }
         }
+
+        private void dgvTitle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
