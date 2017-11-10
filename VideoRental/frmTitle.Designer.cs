@@ -134,6 +134,7 @@
             this.dgvTitle.Name = "dgvTitle";
             this.dgvTitle.Size = new System.Drawing.Size(592, 137);
             this.dgvTitle.TabIndex = 2;
+            this.dgvTitle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTitle_CellContentClick);
             this.dgvTitle.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvTitle_RowStateChanged);
             // 
             // btnAdd

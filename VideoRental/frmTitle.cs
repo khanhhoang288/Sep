@@ -110,5 +110,10 @@ namespace VideoRental
 
             LoadDataGridView(dgvTitle, titlebll.getAllTitle());
         }
+
+        private void dgvTitle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
