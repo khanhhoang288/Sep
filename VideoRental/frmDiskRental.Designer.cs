@@ -40,6 +40,7 @@
             this.videoRentalDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_DiskRentalTableAdapter = new VideoRental.VideoRentalDataSet1TableAdapters.tbl_DiskRentalTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiskRental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblDiskRentalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSet1)).BeginInit();
@@ -66,6 +67,7 @@
             this.dgvDiskRental.Name = "dgvDiskRental";
             this.dgvDiskRental.Size = new System.Drawing.Size(492, 150);
             this.dgvDiskRental.TabIndex = 1;
+            this.dgvDiskRental.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDiskRental_RowStateChanged);
             // 
             // rentalIDDataGridViewTextBoxColumn
             // 
@@ -122,11 +124,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(494, 98);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmDiskRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 352);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvDiskRental);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diskIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

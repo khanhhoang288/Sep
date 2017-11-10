@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Entities;
+using System.Data.Linq;
 
 namespace BLL
 {
@@ -48,6 +49,34 @@ namespace BLL
                 ls.Add(temp);
             }
             return ls;
+        }
+
+        public void insertDiskRental(eDiskRental e)
+        {
+            tbl_DiskRental temp = new tbl_DiskRental();
+
+            temp.RentalID = e.RentalID;
+            temp.DiskID = e.DiskID;
+
+            db.tbl_DiskRentals.InsertOnSubmit(temp);
+            db.SubmitChanges();
+        }
+
+        public bool deleteDiskRental(int rid, int did)
+        {
+            //var qr = from d in db.tbl_DiskRentals
+            //                      where (d.RentalID==rid) && (d.DiskID==did)
+            //                      select d;
+
+            tbl_DiskRental temp = db.tbl_DiskRentals.Where(x => x.RentalID==rid && x.DiskID==did).FirstOrDefault();
+
+            if (temp != null)
+            {
+                db.tbl_DiskRentals.DeleteOnSubmit(temp);
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

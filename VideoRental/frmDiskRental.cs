@@ -28,6 +28,9 @@ namespace VideoRental
                 rentalid = value;
             }
         }
+
+
+
         List<eDiskRental> listdiskrental;
         DiskRentalBLL diskrentalbll;
         public frmDiskRental()
@@ -72,9 +75,41 @@ namespace VideoRental
             d.RentalID = Convert.ToInt32( label1.Text);
             d.DiskID = Convert.ToInt32(txtDiskID.Text);
 
+            diskrentalbll.insertDiskRental(d);
             //diskrentalbll.ins(rental);
 
-            //LoadDataGridView(dgvRental, rentalbll.getAllRental());
+            LoadDataGridView1(dgvDiskRental, diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(label1.Text)));
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //int titleid = Convert.ToInt32(lblID.Text);
+            int rid = Convert.ToInt32(label1.Text);
+            int did = Convert.ToInt32(txtDiskID.Text);
+
+            if (diskrentalbll.deleteDiskRental(rid, did))
+            {
+
+                listdiskrental = diskrentalbll.getAllDiskRentalByRentalID(rid);
+                LoadDataGridView1(dgvDiskRental, listdiskrental);
+                MessageBox.Show("Success");
+
+            }
+            else
+            {
+                MessageBox.Show("fail");
+            }
+        }
+
+        private void dgvDiskRental_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (dgvDiskRental.SelectedRows.Count > 0)
+            {
+                label1.Text = e.Row.Cells[0].Value.ToString();
+                txtDiskID.Text = e.Row.Cells[1].Value.ToString();
+               
+
+            }
         }
     }
 }
