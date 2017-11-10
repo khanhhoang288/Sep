@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using BLL;
 using Entities;
 
-
 namespace VideoRental
 {
     public partial class frmTitle : Form

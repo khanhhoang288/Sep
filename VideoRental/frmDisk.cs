@@ -16,7 +16,6 @@ namespace VideoRental
     {
         List<eDisk> lsdisk;
         DiskBLL diskbll; 
-        
         public frmDisk()
         {
             lsdisk = new List<eDisk>();
@@ -24,6 +23,7 @@ namespace VideoRental
 
             lsdisk = diskbll.getAllDisk();
             LoadDataGridView(dgvDisk, lsdisk);
+
             InitializeComponent();
         }
 

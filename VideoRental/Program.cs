@@ -16,7 +16,7 @@ namespace VideoRental
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDisk());
+            Application.Run(new frmTitle());
         }
     }
 }
