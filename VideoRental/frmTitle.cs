@@ -83,9 +83,10 @@ namespace VideoRental
             int titleid = Convert.ToInt32( lblID.Text);
             if (titlebll.deleteTitle(titleid))
             {
-                MessageBox.Show("Success");
+                
                 listtitle = titlebll.getAllTitle();
                 LoadDataGridView(dgvTitle, listtitle);
+                MessageBox.Show("Success");
 
             }
             else

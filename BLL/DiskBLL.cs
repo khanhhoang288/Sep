@@ -85,5 +85,29 @@ namespace BLL
             db.tbl_Disks.InsertOnSubmit(temp);
             db.SubmitChanges();
         }
+
+        public bool deleteDisk(int diskid)
+        {
+            tbl_Disk temp = db.tbl_Disks.Where(x => x.DiskID == diskid).FirstOrDefault();
+            if (temp != null)
+            {
+                db.tbl_Disks.DeleteOnSubmit(temp);
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public void updateDisk(eDisk disk)
+        {
+            tbl_Disk temp = db.tbl_Disks.Where(x => x.DiskID == disk.DiskID).FirstOrDefault();
+
+            temp.TitleID = disk.TitleID;
+            temp.DiskStatus = disk.DiskStatus;
+            temp.DiskCode = disk.DiskCode;
+
+
+            db.SubmitChanges();
+        }
     }
 }

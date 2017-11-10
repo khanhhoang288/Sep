@@ -76,5 +76,39 @@ namespace VideoRental
 
             LoadDataGridView();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int diskid = Convert.ToInt32(lblDiskID.Text);
+            if (diskbll.deleteDisk(diskid))
+            {
+                
+                listdisk = diskbll.getAllDisk();
+                LoadDataGridView();
+                MessageBox.Show("Success");
+
+            }
+            else
+            {
+                MessageBox.Show("fail");
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            eDisk temp = new eDisk();
+
+            temp.DiskID = Convert.ToInt32(lblDiskID.Text);
+            temp.TitleID = Convert.ToInt32(txtTitleID.Text);
+            temp.DiskStatus = txtDiskStatus.Text;
+            temp.DiskCode = txtDiskCode.Text;
+
+
+
+            diskbll.updateDisk(temp);
+
+            LoadDataGridView();
+        }
     }
 }
