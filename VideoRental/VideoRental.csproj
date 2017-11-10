@@ -58,6 +58,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDiskRental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiskRental.Designer.cs">
+      <DependentUpon>frmDiskRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTitle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <EmbeddedResource Include="frmDiskManage.resx">
       <DependentUpon>frmDiskManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiskRental.resx">
+      <DependentUpon>frmDiskRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
