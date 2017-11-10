@@ -53,5 +53,41 @@ namespace BLL
             }
             return ls;
         }
+
+
+        public void insertRental(eRental rental)
+        {
+            tbl_Rental temp = new tbl_Rental();
+
+            temp.RentalDate = rental.RentalDate;
+            temp.CustomerID = rental.CustomerID;
+
+
+            db.tbl_Rentals.InsertOnSubmit(temp);
+            db.SubmitChanges();
+        }
+
+        public void updateRental(eRental rental)
+        {
+            tbl_Rental temp = db.tbl_Rentals.Where(x => x.RentalID == rental.RentalID).FirstOrDefault();
+
+            temp.RentalDate = rental.RentalDate;
+            temp.CustomerID = rental.CustomerID;
+
+            db.SubmitChanges();
+        }
+
+        public bool deleteRental(int rid)
+        {
+            tbl_Rental temp = db.tbl_Rentals.Where(x => x.RentalID == rid).FirstOrDefault();
+            if (temp != null)
+            {
+                db.tbl_Rentals.DeleteOnSubmit(temp);
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
     }
 }
