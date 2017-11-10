@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="CustomerBLL.cs" />
     <Compile Include="DiskBLL.cs" />
+    <Compile Include="DiskRentalBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentalBLL.cs" />
     <Compile Include="TitleBLL.cs" />
   </ItemGroup>
   <ItemGroup>

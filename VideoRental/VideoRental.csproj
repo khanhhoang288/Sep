@@ -64,6 +64,12 @@
     <Compile Include="frmDiskRental.Designer.cs">
       <DependentUpon>frmDiskRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRental.Designer.cs">
+      <DependentUpon>frmRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTitle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VideoRentalDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VideoRentalDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoRentalDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDiskManage.resx">
       <DependentUpon>frmDiskManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRental.resx">
+      <DependentUpon>frmRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTitle.resx">
       <DependentUpon>frmTitle.cs</DependentUpon>
@@ -117,6 +131,17 @@
     </None>
     <None Include="VideoRentalDataSet.xss">
       <DependentUpon>VideoRentalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VideoRentalDataSet1.xsc">
+      <DependentUpon>VideoRentalDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VideoRentalDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VideoRentalDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VideoRentalDataSet1.xss">
+      <DependentUpon>VideoRentalDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

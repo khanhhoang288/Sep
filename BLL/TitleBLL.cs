@@ -24,15 +24,15 @@ namespace BLL
 
             foreach(tbl_Title item in db.tbl_Titles.ToList())
             {
-                eTitle title = new eTitle();
-                title.TitleID = item.TitleID;
-                title.TitleName = item.TitleName;
-                title.RentalPeriod = Convert.ToInt32(item.RentalPeriod);
-                title.RentalCharge = Convert.ToInt32(item.RentalCharge);
-                title.TitleStatus = item.TitleStatus;
-                title.Quantity = Convert.ToInt32(item.Quantity);
+                eTitle temp = new eTitle();
+                temp.TitleID = item.TitleID;
+                temp.TitleName = item.TitleName;
+                temp.RentalPeriod = Convert.ToInt32(item.RentalPeriod);
+                temp.RentalCharge = Convert.ToInt32(item.RentalCharge);
+                temp.TitleStatus = item.TitleStatus;
+                temp.Quantity = Convert.ToInt32(item.Quantity);
 
-                ls.Add(title);
+                ls.Add(temp);
             }
 
             return ls;
