@@ -37,6 +37,20 @@ namespace BLL
 
             return ls;
         }
+
+        //public eTitle getTitleByID(int id)
+        //{
+        //    eTitle t = new eTitle();
+        //    var temp = db.tbl_Titles.Where(x => x.TitleID == id).FirstOrDefault();
+        //    t.TitleID = temp.TitleID;
+        //    t.TitleName = temp.TitleName;
+        //    t.RentalPeriod = Convert.ToInt32( temp.RentalPeriod);
+        //    t.RentalCharge = Convert.ToInt32( temp.RentalCharge);
+        //    t.TitleStatus = temp.TitleStatus;
+        //    t.Quantity = Convert.ToInt32( temp.Quantity);
+
+        //    return t;
+        //}
         
         public void insertTitle(eTitle title)
         {

@@ -93,5 +93,20 @@ namespace VideoRental
                 MessageBox.Show("fail");
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            eTitle temp = new eTitle();
+            temp.TitleID = Convert.ToInt32(lblID.Text);
+            temp.TitleName = txtTitleName.Text;
+            temp.RentalPeriod = Convert.ToInt32( txtRentalPeriod.Text);
+            temp.RentalCharge = Convert.ToInt32( txtRentalCharge.Text);
+            temp.TitleStatus = txtTitleStatus.Text;
+            temp.Quantity = Convert.ToInt32(txtQuantity.Text);
+
+            titlebll.updateTitle(temp);
+
+            LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+        }
     }
 }
