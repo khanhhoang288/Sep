@@ -88,5 +88,39 @@ namespace VideoRental
             khbll.AddCustomer(cus);
             LoadDataGridView(dtGvCustomer, khbll.GetAllCustomer());
         }
+
+        private void btnluu_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnsua_Click(object sender, EventArgs e)
+        {
+            eCustomer cus = new eCustomer();
+            cus.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            cus.CustomerName = txtCustomerName.Text;
+            cus.Address = txtAddress.Text;
+            cus.PhoneNumber = txtPhoneNumber.Text;
+
+            khbll.Update(cus);
+
+            LoadDataGridView(dtGvCustomer, khbll.GetAllCustomer());
+        }
+
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+            int customerid = Convert.ToInt32(txtCustomerID.Text);
+            if (khbll.Delete(customerid))
+            {
+                MessageBox.Show("Thành Công");
+                listkh = khbll.GetAllCustomer();
+                LoadDataGridView(dtGvCustomer, listkh);
+
+            }
+            else
+            {
+                MessageBox.Show("Thất bại");
+            }
+        }
     }
 }
