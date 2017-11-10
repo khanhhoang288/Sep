@@ -88,6 +88,10 @@ namespace VideoRental
                 LoadDataGridView(dgvTitle, listtitle);
 
             }
+            else
+            {
+                MessageBox.Show("fail");
+            }
         }
     }
 }
