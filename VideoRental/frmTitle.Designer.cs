@@ -1,0 +1,196 @@
+﻿namespace VideoRental
+{
+    partial class frmTitle
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTitleName = new System.Windows.Forms.TextBox();
+            this.txtRentalPeriod = new System.Windows.Forms.TextBox();
+            this.txtRentalCharge = new System.Windows.Forms.TextBox();
+            this.txtTitleStatus = new System.Windows.Forms.TextBox();
+            this.titleQuantity = new System.Windows.Forms.TextBox();
+            this.dgvTitle = new System.Windows.Forms.DataGridView();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTitle)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(58, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Title Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(58, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Rental Period";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(58, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Rental Charge";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(429, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Title Status";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(429, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Quantity";
+            // 
+            // txtTitleName
+            // 
+            this.txtTitleName.Location = new System.Drawing.Point(150, 89);
+            this.txtTitleName.Name = "txtTitleName";
+            this.txtTitleName.Size = new System.Drawing.Size(100, 20);
+            this.txtTitleName.TabIndex = 1;
+            // 
+            // txtRentalPeriod
+            // 
+            this.txtRentalPeriod.Location = new System.Drawing.Point(150, 122);
+            this.txtRentalPeriod.Name = "txtRentalPeriod";
+            this.txtRentalPeriod.Size = new System.Drawing.Size(100, 20);
+            this.txtRentalPeriod.TabIndex = 1;
+            // 
+            // txtRentalCharge
+            // 
+            this.txtRentalCharge.Location = new System.Drawing.Point(150, 158);
+            this.txtRentalCharge.Name = "txtRentalCharge";
+            this.txtRentalCharge.Size = new System.Drawing.Size(100, 20);
+            this.txtRentalCharge.TabIndex = 1;
+            // 
+            // txtTitleStatus
+            // 
+            this.txtTitleStatus.Location = new System.Drawing.Point(525, 93);
+            this.txtTitleStatus.Name = "txtTitleStatus";
+            this.txtTitleStatus.Size = new System.Drawing.Size(100, 20);
+            this.txtTitleStatus.TabIndex = 1;
+            // 
+            // titleQuantity
+            // 
+            this.titleQuantity.Location = new System.Drawing.Point(525, 129);
+            this.titleQuantity.Name = "titleQuantity";
+            this.titleQuantity.Size = new System.Drawing.Size(100, 20);
+            this.titleQuantity.TabIndex = 1;
+            // 
+            // dgvTitle
+            // 
+            this.dgvTitle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTitle.Location = new System.Drawing.Point(61, 203);
+            this.dgvTitle.Name = "dgvTitle";
+            this.dgvTitle.Size = new System.Drawing.Size(592, 137);
+            this.dgvTitle.TabIndex = 2;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(17, 389);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "button1";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(624, 406);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "button1";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // frmTitle
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(734, 441);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.dgvTitle);
+            this.Controls.Add(this.titleQuantity);
+            this.Controls.Add(this.txtTitleStatus);
+            this.Controls.Add(this.txtRentalCharge);
+            this.Controls.Add(this.txtRentalPeriod);
+            this.Controls.Add(this.txtTitleName);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "frmTitle";
+            this.Text = "frmTitle";
+            this.Load += new System.EventHandler(this.frmTitle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTitle)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTitleName;
+        private System.Windows.Forms.TextBox txtRentalPeriod;
+        private System.Windows.Forms.TextBox txtRentalCharge;
+        private System.Windows.Forms.TextBox txtTitleStatus;
+        private System.Windows.Forms.TextBox titleQuantity;
+        private System.Windows.Forms.DataGridView dgvTitle;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnExit;
+    }
+}
