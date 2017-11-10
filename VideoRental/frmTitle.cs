@@ -50,5 +50,18 @@ namespace VideoRental
             dgv.Columns[2].HeaderText = "Quantity";
             dgv.Columns[2].Width = 170;
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            eTitle title = new eTitle();
+            title.TitleName = txtTitleName.Text;
+            title.RentalPeriod = Convert.ToInt32(txtRentalPeriod.Text);
+            title.RentalCharge = Convert.ToDecimal(txtRentalCharge.Text);
+            title.TitleStatus = txtTitleStatus.Text;
+            title.Quantity = Convert.ToInt32( txtQuantity.Text);
+
+            titlebll.insertTitle(title);
+            LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+        }
     }
 }

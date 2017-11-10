@@ -38,6 +38,47 @@ namespace BLL
             return ls;
         }
         
+        public void insertTitle(eTitle title)
+        {
+            tbl_Title temp = new tbl_Title();
+
+            temp.TitleName = title.TitleName;
+            temp.RentalPeriod = title.RentalPeriod;
+            temp.RentalCharge = title.RentalCharge;
+            temp.TitleStatus = title.TitleStatus;
+            temp.Quantity = title.Quantity;
+
+            db.tbl_Titles.InsertOnSubmit(temp);
+            db.SubmitChanges();
+        }
+
+
+        public void updateTitle(eTitle title)
+        {
+            tbl_Title temp = db.tbl_Titles.Where(x => x.TitleID == title.TitleID).FirstOrDefault();
+
+            temp.TitleName = title.TitleName;
+            temp.RentalPeriod = title.RentalPeriod;
+            temp.RentalCharge = title.RentalCharge;
+            temp.TitleStatus = title.TitleStatus;
+            temp.Quantity = title.Quantity;
+
+            db.SubmitChanges();
+        }
+
+        public bool deleteTitle(int titleid)
+        {
+            tbl_Title temp = db.tbl_Titles.Where(x => x.TitleID == titleid).FirstOrDefault();
+            if (temp!=null)
+            {
+                db.tbl_Titles.DeleteOnSubmit(temp);
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+
 
     }
 }
