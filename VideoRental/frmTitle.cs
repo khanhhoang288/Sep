@@ -19,12 +19,14 @@ namespace VideoRental
         TitleBLL titlebll;
         public frmTitle()
         {
-            InitializeComponent();
             listtitle = new List<eTitle>();
             titlebll = new TitleBLL();
 
             listtitle = titlebll.getAllTitle();
             LoadDataGridView(dgvTitle, listtitle);
+
+            InitializeComponent();
+            
         }
 
         private void frmTitle_Load(object sender, EventArgs e)
