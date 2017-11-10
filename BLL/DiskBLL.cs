@@ -18,6 +18,24 @@ namespace BLL
             db = new VideoRentalDataContext();
         }
 
+        public List<eDisk> getAllDisk()
+        {
+            List<eDisk> ls = new List<eDisk>();
+
+            foreach (tbl_Disk item in db.tbl_Disks.ToList())
+            {
+                eDisk disk = new eDisk();
+
+                disk.DiskID = item.DiskID;
+                disk.TitleID = Convert.ToInt32( item.TitleID);
+                disk.DiskStatus = item.DiskStatus;
+                disk.DiskCode = item.DiskCode;
+
+                ls.Add(disk);
+            }
+            return ls;
+        }
+
         public List<eDisk> getAllDisl()
         {
             List<eDisk> ls = new List<eDisk>();
@@ -29,7 +47,7 @@ namespace BLL
                 disk.DiskID = item.DiskID;
                 disk.TitleID = Convert.ToInt32(item.TitleID);
                 disk.DiskStatus = item.DiskStatus;
-                disk.DiskCode = disk.DiskCode;
+                disk.DiskCode = item.DiskCode;
 
                 ls.Add(disk);
             }
@@ -52,6 +70,20 @@ namespace BLL
                 ls.Add(disk);
             }
             return ls;
+        }
+
+        public void insertDisk(eDisk disk)
+        {
+            tbl_Disk temp = new tbl_Disk();
+
+            temp.TitleID = disk.TitleID;
+            temp.DiskStatus = disk.DiskStatus;
+            temp.DiskCode = disk.DiskCode;
+
+            
+
+            db.tbl_Disks.InsertOnSubmit(temp);
+            db.SubmitChanges();
         }
     }
 }
