@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAcount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcount.Designer.cs">
+      <DependentUpon>frmAcount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VideoRentalDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAcount.resx">
+      <DependentUpon>frmAcount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
