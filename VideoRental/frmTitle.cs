@@ -35,20 +35,20 @@ namespace VideoRental
         public void LoadDataGridView(DataGridView dgv, List<eTitle> l)
         {
             dgv.DataSource = l;
-            dgv.Columns[0].HeaderText = "Title Name";
-            dgv.Columns[1].Width = 170;
+           // dgv.Columns[0].HeaderText = "Title Name";
+           // //dgv.Columns[1].Width = 170;
 
-            dgv.Columns[1].HeaderText = "RentalPeriod";
-            dgv.Columns[1].Width = 170;
+           // dgv.Columns[1].HeaderText = "RentalPeriod";
+           // //dgv.Columns[1].Width = 170;
 
-            dgv.Columns[2].HeaderText = "RentalCharge";
-            dgv.Columns[2].Width = 170;
+           // dgv.Columns[2].HeaderText = "RentalCharge";
+           // //dgv.Columns[2].Width = 170;
 
-            dgv.Columns[2].HeaderText = "TitleStatus";
-            dgv.Columns[2].Width = 170;
+           // dgv.Columns[3].HeaderText = "TitleStatus";
+           //// dgv.Columns[2].Width = 170;
 
-            dgv.Columns[2].HeaderText = "Quantity";
-            dgv.Columns[2].Width = 170;
+           // dgv.Columns[4].HeaderText = "Quantity";
+           //// dgv.Columns[2].Width = 170;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -62,6 +62,18 @@ namespace VideoRental
 
             titlebll.insertTitle(title);
             LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+        }
+
+        private void dgvTitle_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (dgvTitle.SelectedRows.Count>0)
+            {
+                txtTitleName.Text = e.Row.Cells["TitleName"].Value.ToString();
+                txtRentalPeriod.Text = e.Row.Cells["RentalPeriod"].Value.ToString();
+                txtRentalCharge.Text = e.Row.Cells["RentalCharge"].Value.ToString();
+                txtTitleStatus.Text = e.Row.Cells["TitleStatus"].Value.ToString();
+                txtQuantity.Text = e.Row.Cells["Quantity"].Value.ToString();
+            }
         }
     }
 }
