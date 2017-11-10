@@ -29,7 +29,7 @@ namespace VideoRental
 
         private void frmTitle_Load(object sender, EventArgs e)
         {
-
+            lblID.Visible = false;
         }
 
         public void LoadDataGridView(DataGridView dgv, List<eTitle> l)
@@ -68,12 +68,45 @@ namespace VideoRental
         {
             if (dgvTitle.SelectedRows.Count>0)
             {
+                lblID.Text= e.Row.Cells["TitleID"].Value.ToString();
                 txtTitleName.Text = e.Row.Cells["TitleName"].Value.ToString();
                 txtRentalPeriod.Text = e.Row.Cells["RentalPeriod"].Value.ToString();
                 txtRentalCharge.Text = e.Row.Cells["RentalCharge"].Value.ToString();
                 txtTitleStatus.Text = e.Row.Cells["TitleStatus"].Value.ToString();
                 txtQuantity.Text = e.Row.Cells["Quantity"].Value.ToString();
+
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int titleid = Convert.ToInt32( lblID.Text);
+            if (titlebll.deleteTitle(titleid))
+            {
+                MessageBox.Show("Success");
+                listtitle = titlebll.getAllTitle();
+                LoadDataGridView(dgvTitle, listtitle);
+
+            }
+            else
+            {
+                MessageBox.Show("fail");
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            eTitle temp = new eTitle();
+            temp.TitleID = Convert.ToInt32(lblID.Text);
+            temp.TitleName = txtTitleName.Text;
+            temp.RentalPeriod = Convert.ToInt32( txtRentalPeriod.Text);
+            temp.RentalCharge = Convert.ToInt32( txtRentalCharge.Text);
+            temp.TitleStatus = txtTitleStatus.Text;
+            temp.Quantity = Convert.ToInt32(txtQuantity.Text);
+
+            titlebll.updateTitle(temp);
+
+            LoadDataGridView(dgvTitle, titlebll.getAllTitle());
         }
 
         private void dgvTitle_CellContentClick(object sender, DataGridViewCellEventArgs e)
