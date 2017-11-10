@@ -32,6 +32,8 @@
             this.dtpRental = new System.Windows.Forms.DateTimePicker();
             this.dgvRental = new System.Windows.Forms.DataGridView();
             this.lblRentalID = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRental)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,11 +69,33 @@
             this.lblRentalID.TabIndex = 3;
             this.lblRentalID.Text = "lblRentalID";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(575, 79);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(583, 170);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 354);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblRentalID);
             this.Controls.Add(this.dgvRental);
             this.Controls.Add(this.dtpRental);
@@ -91,5 +115,7 @@
         private System.Windows.Forms.DateTimePicker dtpRental;
         private System.Windows.Forms.DataGridView dgvRental;
         private System.Windows.Forms.Label lblRentalID;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button button1;
     }
 }
