@@ -48,5 +48,35 @@ namespace VideoRental
 
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            eRental rental = new eRental();
+
+            rental.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
+
+            rentalbll.insertRental(rental);
+
+            LoadDataGridView(dgvRental, rentalbll.getAllRental());
+
+            ///
+            frmDiskRental child = new frmDiskRental();
+            child.Rentalid = rental.RentalID;
+            child.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            eRental rental = new eRental();
+
+            rental.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
+
+            frmDiskRental child = new frmDiskRental();
+            child.Rentalid = Convert.ToInt32( lblRentalID.Text);
+            child.Show();
+        }
     }
 }
