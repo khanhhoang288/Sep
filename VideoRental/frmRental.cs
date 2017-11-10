@@ -14,6 +14,8 @@ namespace VideoRental
 {
     public partial class frmRental : Form
     {
+        LateChargeBLL latechargebll;
+
         List<eRental> listrental;
         RentalBLL rentalbll;
         public frmRental()
@@ -21,6 +23,8 @@ namespace VideoRental
             InitializeComponent();
             listrental = new List<eRental>();
             rentalbll = new RentalBLL();
+
+            latechargebll = new LateChargeBLL();
 
             listrental = rentalbll.getAllRental();
             LoadDataGridView(dgvRental, listrental);
@@ -49,7 +53,7 @@ namespace VideoRental
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        public void addrental()
         {
             eRental rental = new eRental();
 
@@ -64,6 +68,33 @@ namespace VideoRental
             frmDiskRental child = new frmDiskRental();
             child.Rentalid = rental.RentalID;
             child.Show();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            decimal lc = latechargebll.sumLateChargeByCustomerID(Convert.ToInt32(txtCustomerID.Text));
+            if (lc<=0)
+            {
+                addrental();
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("ban muon thanh toan phi tra tre ko ?", "Late Charge", MessageBoxButtons.YesNoCancel);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    addrental();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    //ko lam gi
+                }
+            }
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

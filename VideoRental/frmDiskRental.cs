@@ -29,7 +29,7 @@ namespace VideoRental
             }
         }
 
-
+        //LateChargeBLL latechargebll;
 
         List<eDiskRental> listdiskrental;
         DiskRentalBLL diskrentalbll;
@@ -43,8 +43,6 @@ namespace VideoRental
             //LoadDataGridView1(dgvDiskRental, listdiskrental);
             
         }
-
-        
 
         private void frmDiskRental_Load(object sender, EventArgs e)
         {
@@ -62,7 +60,6 @@ namespace VideoRental
             this.tbl_DiskRentalTableAdapter.Fill(this.videoRentalDataSet1.tbl_DiskRental);
         }
 
-
         public void LoadDataGridView1(DataGridView d, List<eDiskRental> list)
         {
             d.DataSource = list;
@@ -70,6 +67,7 @@ namespace VideoRental
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
             eDiskRental d = new eDiskRental();
             label1.Text = rentalid.ToString();
             d.RentalID = Convert.ToInt32( label1.Text);
