@@ -69,7 +69,7 @@ namespace VideoRental
             }
             else if (rdbPartLateCharge.Checked==true)
             {
-
+                lcbll.updateLatecharFeePart(Cid, Convert.ToInt32(txtPartLateCharge.Text));
             }
         }
     }

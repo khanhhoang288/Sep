@@ -44,13 +44,50 @@ namespace BLL
         }
 
 
-        public void updateLatecharFeePart(int lid,int cid, decimal l)
+        public void updateLatecharFeePart(int cid, decimal l)
         {
-            decimal full = sumLateChargeByCustomerID(cid);
+            var ls = db.tbl_LateCharges.Where(x => x.CustomerID == cid).ToList();          
+            foreach (tbl_LateCharge item in ls)
+            {
 
-            var item = db.tbl_LateCharges.Where(x => x.LateChargeID == lid).FirstOrDefault();
-            item.LateCharge = 0;
-            db.SubmitChanges();
+                if (l > item.LateCharge)
+                {
+                    l = l - Convert.ToDecimal(item.LateCharge);
+                    item.LateCharge = 0;
+                    db.SubmitChanges();
+                    
+                }
+                else
+                {
+                    item.LateCharge = item.LateCharge - l;
+                    db.SubmitChanges();
+                    break;
+                }
+            }
+
+
+
+            // List<eLateCharge> ls = new List<eLateCharge>();
+            //var lslate = db.tbl_LateCharges.Where(x => x.CustomerID == cid).ToList();
+            //foreach (tbl_LateCharge item in lslate)
+            //{
+            //    if (l>=item.LateCharge)
+            //    {
+            //        item.LateCharge = 0;
+            //        db.SubmitChanges();
+            //        l = Convert.ToDecimal( l - item.LateCharge);
+
+
+            //    }
+            //    else
+            //    {
+            //        item.LateCharge = item.LateCharge - l;
+            //        db.SubmitChanges();
+            //        break;
+            //    }
+
+
+            // }
         }
 
 
