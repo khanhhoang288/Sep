@@ -1337,6 +1337,8 @@ namespace DAL
 		
 		private System.Nullable<int> _CustomerID;
 		
+		private System.Nullable<System.DateTime> _ReservationDate;
+		
 		private EntitySet<tbl_ReservationTitle> _tbl_ReservationTitles;
 		
 		private EntityRef<tbl_Customer> _tbl_Customer;
@@ -1349,6 +1351,8 @@ namespace DAL
     partial void OnReservationIDChanged();
     partial void OnCustomerIDChanging(System.Nullable<int> value);
     partial void OnCustomerIDChanged();
+    partial void OnReservationDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnReservationDateChanged();
     #endregion
 		
 		public tbl_Reservation()
@@ -1398,6 +1402,26 @@ namespace DAL
 					this._CustomerID = value;
 					this.SendPropertyChanged("CustomerID");
 					this.OnCustomerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReservationDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ReservationDate
+		{
+			get
+			{
+				return this._ReservationDate;
+			}
+			set
+			{
+				if ((this._ReservationDate != value))
+				{
+					this.OnReservationDateChanging(value);
+					this.SendPropertyChanging();
+					this._ReservationDate = value;
+					this.SendPropertyChanged("ReservationDate");
+					this.OnReservationDateChanged();
 				}
 			}
 		}

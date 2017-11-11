@@ -61,6 +61,7 @@
     <Type Name="tbl_Reservation">
       <Column Name="ReservationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReservationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="tbl_Reservation_tbl_ReservationTitle" Member="tbl_ReservationTitles" ThisKey="ReservationID" OtherKey="ReservationID" Type="tbl_ReservationTitle" />
       <Association Name="tbl_Customer_tbl_Reservation" Member="tbl_Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="tbl_Customer" IsForeignKey="true" />
     </Type>
