@@ -62,27 +62,37 @@ namespace VideoRental
 
             rentalbll.insertRental(rental);
 
+            
+
             LoadDataGridView(dgvRental, rentalbll.getAllRental());
 
-            ///
+            
             frmDiskRental child = new frmDiskRental();
-            child.Rentalid = rental.RentalID;
+            child.Rentalid = Convert.ToInt32( rentalbll.maxRentalID().ToString());
             child.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+           
+
+
             decimal lc = latechargebll.sumLateChargeByCustomerID(Convert.ToInt32(txtCustomerID.Text));
-            if (lc<=0)
+            if (lc <= 0)
             {
                 addrental();
+
+
             }
             else
             {
                 DialogResult dialogResult = MessageBox.Show("ban muon thanh toan phi tra tre ko ?", "Late Charge", MessageBoxButtons.YesNoCancel);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    
+                    frmLateCharge child = new frmLateCharge();
+                    child.Cid = Convert.ToInt32(txtCustomerID.Text);
+                    child.Show();
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -94,7 +104,7 @@ namespace VideoRental
                 }
             }
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)

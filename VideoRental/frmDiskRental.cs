@@ -48,7 +48,7 @@ namespace VideoRental
         {
             // TODO: This line of code loads data into the 'videoRentalDataSet1.tbl_DiskRental' table. You can move, or remove it, as needed.
             //LoadDataGridView();
-            //label1.Text =  rentalid.ToString();
+            label1.Text =  Rentalid.ToString();
             
             listdiskrental = diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(rentalid));
             LoadDataGridView1(dgvDiskRental, listdiskrental);

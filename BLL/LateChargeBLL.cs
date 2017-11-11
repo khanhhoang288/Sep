@@ -36,6 +36,24 @@ namespace BLL
             return ls;
         }
 
+        public void updateLatecharFee(int lid)
+        {
+            var item = db.tbl_LateCharges.Where(x => x.LateChargeID == lid).FirstOrDefault();
+            item.LateCharge = 0;
+            db.SubmitChanges();
+        }
+
+
+        public void updateLatecharFeePart(int lid,int cid, decimal l)
+        {
+            decimal full = sumLateChargeByCustomerID(cid);
+
+            var item = db.tbl_LateCharges.Where(x => x.LateChargeID == lid).FirstOrDefault();
+            item.LateCharge = 0;
+            db.SubmitChanges();
+        }
+
+
         public List<eLateCharge> getLateChargeByCustomerID(int cid)
         {
             List<eLateCharge> ls = new List<eLateCharge>();

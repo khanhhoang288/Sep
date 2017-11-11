@@ -35,6 +35,7 @@
             this.rdbPartLateCharge = new System.Windows.Forms.RadioButton();
             this.btnPaid = new System.Windows.Forms.Button();
             this.txtPartLateCharge = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLateCharge)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +93,7 @@
             this.btnPaid.TabIndex = 4;
             this.btnPaid.Text = "Paid";
             this.btnPaid.UseVisualStyleBackColor = true;
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
             // 
             // txtPartLateCharge
             // 
@@ -100,11 +102,21 @@
             this.txtPartLateCharge.Size = new System.Drawing.Size(100, 20);
             this.txtPartLateCharge.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(580, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
+            // 
             // frmLateCharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 371);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPaid);
             this.Controls.Add(this.rdbPartLateCharge);
             this.Controls.Add(this.rdbAllLateCharge);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.RadioButton rdbPartLateCharge;
         private System.Windows.Forms.Button btnPaid;
         private System.Windows.Forms.TextBox txtPartLateCharge;
+        private System.Windows.Forms.Label label2;
     }
 }
