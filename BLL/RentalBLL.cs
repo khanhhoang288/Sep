@@ -54,7 +54,11 @@ namespace BLL
             return ls;
         }
 
-
+        public int getCustomerIDByLateChargeID(int lid)
+        {
+            var temp = db.tbl_Rentals.Where(x => x.RentalID == lid).FirstOrDefault();
+            return Convert.ToInt32( temp.CustomerID);
+        }
         public void insertRental(eRental rental)
         {
             tbl_Rental temp = new tbl_Rental();
@@ -87,6 +91,21 @@ namespace BLL
                 return true;
             }
             return false;
+        }
+
+        public int maxRentalID()
+        {
+            int a = 0;
+            foreach (tbl_Rental item in db.tbl_Rentals.ToList())
+            {
+                if(item.RentalID>a)
+                {
+                    a = item.RentalID;
+                }
+            }
+            return a;
+
+            
         }
 
     }

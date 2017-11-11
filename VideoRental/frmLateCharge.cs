@@ -17,6 +17,22 @@ namespace VideoRental
         List<eLateCharge> listlc;
         LateChargeBLL lcbll;
 
+
+        private int cid;
+
+        public int Cid
+        {
+            get
+            {
+                return cid;
+            }
+
+            set
+            {
+                cid = value;
+            }
+        }
+
         public frmLateCharge()
         {
             InitializeComponent();
@@ -25,18 +41,36 @@ namespace VideoRental
             lcbll = new LateChargeBLL();
 
             //listlc = lcbll.getAllLateCharge();
-            listlc = lcbll.getLateChargeByCustomerID(2);
-            LoadDataGridView(dgvLateCharge, listlc);
+            
+            
         }
 
         private void frmLateCharge_Load(object sender, EventArgs e)
         {
-            txtTotalLateCharge.Text = lcbll.sumLateChargeByCustomerID(2).ToString();
+            label2.Text = Cid.ToString();
+            listlc = lcbll.getLateChargeByCustomerID(Cid);
+            LoadDataGridView(dgvLateCharge, listlc);
+            txtTotalLateCharge.Text = lcbll.sumLateChargeByCustomerID(cid).ToString();
         }
 
         public void LoadDataGridView(DataGridView dgv, List<eLateCharge> l)
         {
             dgv.DataSource = l;
+        }
+
+        private void btnPaid_Click(object sender, EventArgs e)
+        {
+            if (rdbAllLateCharge.Checked==true)
+            {
+                foreach (eLateCharge item in lcbll.getLateChargeByCustomerID(Cid))
+                {
+                    lcbll.updateLatecharFee(item.LateChargeID);
+                }
+            }
+            else if (rdbPartLateCharge.Checked==true)
+            {
+
+            }
         }
     }
 }
