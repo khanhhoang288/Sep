@@ -36,6 +36,19 @@ namespace BLL
             return ls;
         }
 
+        public eLateCharge getLateChargeByDiskID(int did)
+        {
+            eLateCharge lc = new eLateCharge();
+            var temp = db.tbl_LateCharges.Where(x => x.DiskID == did).FirstOrDefault();
+            lc.LateChargeID =Convert.ToInt32( temp.LateChargeID);
+            lc.CustomerID = Convert.ToInt32( temp.CustomerID);
+            lc.DiskID = Convert.ToInt32( temp.DiskID);
+            lc.LateCharge = Convert.ToInt32( temp.LateCharge);
+
+            return lc;
+        }
+      
+
         public List<eLateCharge> getLateChargeByCustomerID(int cid)
         {
             List<eLateCharge> ls = new List<eLateCharge>();
@@ -65,5 +78,27 @@ namespace BLL
             }
             return sum;
         }
+        public int AddLate(eLateCharge lcid)
+        {
+
+            var lateid = db.tbl_LateCharges.Where(x => x.LateChargeID == lcid.LateChargeID).FirstOrDefault();
+            if (lateid != null)
+            {
+                return 0;
+            }
+            tbl_LateCharge tmplc = new tbl_LateCharge();
+            tmplc.LateChargeID = lateid.LateChargeID;
+            tmplc.LateCharge = lateid.LateCharge;
+            tmplc.DiskID = lateid.DiskID;
+            tmplc.CustomerID = lateid.CustomerID;
+
+             db.tbl_LateCharges.InsertOnSubmit(tmplc);
+             db.SubmitChanges();
+            return 1;
+
+
+
+        }
+
     }
 }
