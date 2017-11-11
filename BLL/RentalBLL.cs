@@ -40,8 +40,8 @@ namespace BLL
         {
             List<eRental> ls = new List<eRental>();
 
-            var lsrental = db.tbl_Rentals.Where(x => x.CustomerID == cid).ToList();
-            foreach (tbl_Rental item in lsrental)
+            var list = db.tbl_Rentals.Where(x => x.CustomerID == cid).ToList();
+            foreach (tbl_Rental item in list)
             {
                 eRental temp = new eRental();
                 temp.RentalID = item.RentalID;
@@ -59,24 +59,24 @@ namespace BLL
             var temp = db.tbl_Rentals.Where(x => x.RentalID == lid).FirstOrDefault();
             return Convert.ToInt32( temp.CustomerID);
         }
-        public void insertRental(eRental rental)
+        public void insertRental(eRental e)
         {
             tbl_Rental temp = new tbl_Rental();
 
-            temp.RentalDate = rental.RentalDate;
-            temp.CustomerID = rental.CustomerID;
+            temp.RentalDate = e.RentalDate;
+            temp.CustomerID = e.CustomerID;
 
 
             db.tbl_Rentals.InsertOnSubmit(temp);
             db.SubmitChanges();
         }
 
-        public void updateRental(eRental rental)
+        public void updateRental(eRental e)
         {
-            tbl_Rental temp = db.tbl_Rentals.Where(x => x.RentalID == rental.RentalID).FirstOrDefault();
+            tbl_Rental temp = db.tbl_Rentals.Where(x => x.RentalID == e.RentalID).FirstOrDefault();
 
-            temp.RentalDate = rental.RentalDate;
-            temp.CustomerID = rental.CustomerID;
+            temp.RentalDate = e.RentalDate;
+            temp.CustomerID = e.CustomerID;
 
             db.SubmitChanges();
         }
@@ -104,8 +104,6 @@ namespace BLL
                 }
             }
             return a;
-
-            
         }
 
     }
