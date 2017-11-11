@@ -65,29 +65,6 @@ namespace BLL
                 }
             }
 
-
-
-            // List<eLateCharge> ls = new List<eLateCharge>();
-            //var lslate = db.tbl_LateCharges.Where(x => x.CustomerID == cid).ToList();
-            //foreach (tbl_LateCharge item in lslate)
-            //{
-            //    if (l>=item.LateCharge)
-            //    {
-            //        item.LateCharge = 0;
-            //        db.SubmitChanges();
-            //        l = Convert.ToDecimal( l - item.LateCharge);
-
-
-            //    }
-            //    else
-            //    {
-            //        item.LateCharge = item.LateCharge - l;
-            //        db.SubmitChanges();
-            //        break;
-            //    }
-
-
-            // }
         }
 
 
@@ -131,10 +108,7 @@ namespace BLL
             lc.LateCharge = Convert.ToInt32(temp.LateCharge);
 
             return lc;
-            ///ahsgashajgd
-            ///dkdsdksdsjkd
-            ///jkdsjbsdjksjkf
-            ///asadjdsd
+
         }
     }
 }
