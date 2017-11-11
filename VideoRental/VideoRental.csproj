@@ -64,6 +64,12 @@
     <Compile Include="frmDiskManage.Designer.cs">
       <DependentUpon>frmDiskManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLateCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLateCharge.Designer.cs">
+      <DependentUpon>frmLateCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiskRental.resx">
       <DependentUpon>frmDiskRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLateCharge.resx">
+      <DependentUpon>frmLateCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
