@@ -83,5 +83,21 @@ namespace BLL
             }
             return sum;
         }
+
+        public eLateCharge getLateChargeByDiskID(int did)
+        {
+            eLateCharge lc = new eLateCharge();
+            var temp = db.tbl_LateCharges.Where(x => x.DiskID == did).FirstOrDefault();
+            lc.LateChargeID = Convert.ToInt32(temp.LateChargeID);
+            lc.CustomerID = Convert.ToInt32(temp.CustomerID);
+            lc.DiskID = Convert.ToInt32(temp.DiskID);
+            lc.LateCharge = Convert.ToInt32(temp.LateCharge);
+
+            return lc;
+            ///ahsgashajgd
+            ///dkdsdksdsjkd
+            ///jkdsjbsdjksjkf
+            ///asadjdsd
+        }
     }
 }
