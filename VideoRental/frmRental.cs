@@ -37,7 +37,9 @@ namespace VideoRental
 
         private void frmRental_Load(object sender, EventArgs e)
         {
+            this.cmbCustomerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             lblRentalID.Visible = false;
+            this.cmbCustomerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             LoadComboBoxCustomer();
             //LoadComboBoxCustomer1(cbll.GetAllCustomer(), "1");
             dgvRental.ReadOnly=true;
@@ -83,6 +85,15 @@ namespace VideoRental
                 cmbCustomerID.Focus();
                 return false;
             }
+
+            if (lblRentalID.Text== "lblRentalID")
+            {
+                MessageBox.Show("ban chua chon ban thua nao");
+                cmbCustomerID.Focus();
+                return false;
+            }
+
+
             try
             {
                 Int32 n = Convert.ToInt32(cmbCustomerID.Text);
@@ -132,6 +143,7 @@ namespace VideoRental
             LoadDataGridView(dgvRental, rentalbll.getRentalByCustomerID(Convert.ToInt32(cmbCustomerID.Text)));
             frmDiskRental child = new frmDiskRental();
             child.Rentalid = Convert.ToInt32( rentalbll.maxRentalID().ToString());
+            child.Status = true;
             child.Show();
         }
 
@@ -249,6 +261,23 @@ namespace VideoRental
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            if (checkInput()==true)
+            {
+                eRental rental = new eRental();
+
+                rental.CustomerID = Convert.ToInt32(cmbCustomerID.Text);
+                rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
+
+                frmDiskRental child = new frmDiskRental();
+                child.Rentalid = Convert.ToInt32(lblRentalID.Text);
+                child.Status = false;
+                child.Show();
+            }
+            
         }
     }
 }

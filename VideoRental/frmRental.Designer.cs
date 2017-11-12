@@ -42,9 +42,10 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCheck = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSetBindingSource)).BeginInit();
@@ -53,7 +54,7 @@
             // 
             // dtpRental
             // 
-            this.dtpRental.Location = new System.Drawing.Point(435, 24);
+            this.dtpRental.Location = new System.Drawing.Point(372, 23);
             this.dtpRental.Name = "dtpRental";
             this.dtpRental.Size = new System.Drawing.Size(231, 20);
             this.dtpRental.TabIndex = 1;
@@ -78,7 +79,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(697, 20);
+            this.btnAdd.Location = new System.Drawing.Point(616, 21);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
@@ -98,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(369, 25);
+            this.label2.Location = new System.Drawing.Point(306, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 7;
@@ -109,7 +110,7 @@
             this.cmbCustomerID.FormattingEnabled = true;
             this.cmbCustomerID.Location = new System.Drawing.Point(108, 22);
             this.cmbCustomerID.Name = "cmbCustomerID";
-            this.cmbCustomerID.Size = new System.Drawing.Size(206, 21);
+            this.cmbCustomerID.Size = new System.Drawing.Size(121, 21);
             this.cmbCustomerID.TabIndex = 8;
             this.cmbCustomerID.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerID_SelectedIndexChanged);
             this.cmbCustomerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCustomerID_KeyPress_1);
@@ -163,14 +164,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Khách Hàng";
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tên Khách Hàng:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Số Điện Thoại:";
             // 
             // label4
             // 
@@ -181,20 +182,31 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Địa Chỉ:";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Số Điện Thoại:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Tên Khách Hàng:";
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(697, 20);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 11;
+            this.btnCheck.Text = "Chi Tiết";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // frmRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbCustomerID);
             this.Controls.Add(this.label2);
@@ -233,5 +245,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCheck;
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtDiskID = new System.Windows.Forms.TextBox();
             this.dgvDiskRental = new System.Windows.Forms.DataGridView();
             this.tblDiskRentalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.videoRentalDataSet1 = new VideoRental.VideoRentalDataSet1();
@@ -50,19 +49,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtDiskID
-            // 
-            this.txtDiskID.Location = new System.Drawing.Point(193, 55);
-            this.txtDiskID.Name = "txtDiskID";
-            this.txtDiskID.Size = new System.Drawing.Size(156, 20);
-            this.txtDiskID.TabIndex = 0;
-            // 
             // dgvDiskRental
             // 
             this.dgvDiskRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiskRental.Location = new System.Drawing.Point(12, 159);
+            this.dgvDiskRental.Location = new System.Drawing.Point(12, 62);
             this.dgvDiskRental.Name = "dgvDiskRental";
-            this.dgvDiskRental.Size = new System.Drawing.Size(497, 150);
+            this.dgvDiskRental.Size = new System.Drawing.Size(760, 374);
             this.dgvDiskRental.TabIndex = 1;
             this.dgvDiskRental.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDiskRental_RowStateChanged);
             // 
@@ -78,11 +70,11 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(467, 52);
+            this.btnAdd.Location = new System.Drawing.Point(270, 20);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Thuê Đĩa";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -103,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 28);
+            this.label1.Location = new System.Drawing.Point(24, 439);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
@@ -111,34 +103,34 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(494, 98);
+            this.btnDelete.Location = new System.Drawing.Point(351, 20);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtSumRentCharge
             // 
-            this.txtSumRentCharge.Location = new System.Drawing.Point(518, 201);
+            this.txtSumRentCharge.Location = new System.Drawing.Point(612, 20);
             this.txtSumRentCharge.Name = "txtSumRentCharge";
-            this.txtSumRentCharge.Size = new System.Drawing.Size(100, 20);
+            this.txtSumRentCharge.Size = new System.Drawing.Size(160, 20);
             this.txtSumRentCharge.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(515, 185);
+            this.label2.Location = new System.Drawing.Point(550, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "sum rental charge";
+            this.label2.Text = "Tổng Tiền";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 62);
+            this.label3.Location = new System.Drawing.Point(15, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 7;
@@ -147,10 +139,11 @@
             // cmbDiskID
             // 
             this.cmbDiskID.FormattingEnabled = true;
-            this.cmbDiskID.Location = new System.Drawing.Point(202, 98);
+            this.cmbDiskID.Location = new System.Drawing.Point(65, 22);
             this.cmbDiskID.Name = "cmbDiskID";
-            this.cmbDiskID.Size = new System.Drawing.Size(121, 21);
+            this.cmbDiskID.Size = new System.Drawing.Size(199, 21);
             this.cmbDiskID.TabIndex = 8;
+            this.cmbDiskID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbDiskID_KeyPress);
             // 
             // frmDiskRental
             // 
@@ -165,7 +158,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvDiskRental);
-            this.Controls.Add(this.txtDiskID);
             this.Name = "frmDiskRental";
             this.Text = "frmDiskRental";
             this.Load += new System.EventHandler(this.frmDiskRental_Load);
@@ -180,8 +172,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtDiskID;
         private System.Windows.Forms.DataGridView dgvDiskRental;
         private System.Windows.Forms.Button btnAdd;
         private VideoRentalDataSet videoRentalDataSet;
