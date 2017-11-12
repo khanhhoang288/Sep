@@ -55,6 +55,7 @@ namespace VideoRental
 
         public bool checkDataInput()
         {
+            //kiem tra xem du lieu da duoc nhap chua
             if(txtTitleName.Text.Trim()=="")
             {
                 MessageBox.Show("ban chua nhap title name");
@@ -82,6 +83,44 @@ namespace VideoRental
             if (txtQuantity.Text.Trim() == "")
             {
                 MessageBox.Show("ban chua nhap txtQuantity");
+                txtQuantity.Focus();
+                return false;
+            }
+
+            
+            //bat loi neu du lieu nhap vao lon hon kieu du lieu
+            try
+            {
+                Int32 n = Convert.ToInt32(txtRentalPeriod.Text);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("so txtRentalPeriod qua lon");
+                txtRentalPeriod.Clear();
+                txtRentalPeriod.Focus();
+                return false;
+            }
+
+            try
+            {
+                Int32 n = Convert.ToInt32(txtRentalCharge.Text);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("so txtRentalCharge qua lon");
+                txtRentalCharge.Clear();
+                txtRentalCharge.Focus();
+                return false;
+            }
+
+            try
+            {
+                Int32 n = Convert.ToInt32(txtQuantity.Text);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("so txtQuantity qua lon");
+                txtQuantity.Clear();
                 txtQuantity.Focus();
                 return false;
             }
@@ -141,17 +180,21 @@ namespace VideoRental
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            eTitle temp = new eTitle();
-            temp.TitleID = Convert.ToInt32(lblID.Text);
-            temp.TitleName = txtTitleName.Text;
-            temp.RentalPeriod = Convert.ToInt32( txtRentalPeriod.Text);
-            temp.RentalCharge = Convert.ToInt32( txtRentalCharge.Text);
-            temp.TitleStatus = txtTitleStatus.Text;
-            temp.Quantity = Convert.ToInt32(txtQuantity.Text);
+            if (checkDataInput()==true)
+            {
+                eTitle temp = new eTitle();
+                temp.TitleID = Convert.ToInt32(lblID.Text);
+                temp.TitleName = txtTitleName.Text;
+                temp.RentalPeriod = Convert.ToInt32(txtRentalPeriod.Text);
+                temp.RentalCharge = Convert.ToInt32(txtRentalCharge.Text);
+                temp.TitleStatus = txtTitleStatus.Text;
+                temp.Quantity = Convert.ToInt32(txtQuantity.Text);
 
-            titlebll.updateTitle(temp);
+                titlebll.updateTitle(temp);
 
-            LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+                LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+            }
+            
         }
 
         private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
