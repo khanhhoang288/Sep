@@ -97,7 +97,7 @@
             this.txtTitleName.Location = new System.Drawing.Point(150, 89);
             this.txtTitleName.Name = "txtTitleName";
             this.txtTitleName.Size = new System.Drawing.Size(100, 20);
-            this.txtTitleName.TabIndex = 1;
+            this.txtTitleName.TabIndex = 0;
             // 
             // txtRentalPeriod
             // 
@@ -105,27 +105,30 @@
             this.txtRentalPeriod.Name = "txtRentalPeriod";
             this.txtRentalPeriod.Size = new System.Drawing.Size(100, 20);
             this.txtRentalPeriod.TabIndex = 1;
+            this.txtRentalPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRentalPeriod_KeyPress);
             // 
             // txtRentalCharge
             // 
             this.txtRentalCharge.Location = new System.Drawing.Point(150, 158);
             this.txtRentalCharge.Name = "txtRentalCharge";
             this.txtRentalCharge.Size = new System.Drawing.Size(100, 20);
-            this.txtRentalCharge.TabIndex = 1;
+            this.txtRentalCharge.TabIndex = 2;
+            this.txtRentalCharge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRentalCharge_KeyPress);
             // 
             // txtTitleStatus
             // 
             this.txtTitleStatus.Location = new System.Drawing.Point(525, 93);
             this.txtTitleStatus.Name = "txtTitleStatus";
             this.txtTitleStatus.Size = new System.Drawing.Size(100, 20);
-            this.txtTitleStatus.TabIndex = 1;
+            this.txtTitleStatus.TabIndex = 3;
             // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(525, 129);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(100, 20);
-            this.txtQuantity.TabIndex = 1;
+            this.txtQuantity.TabIndex = 4;
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // dgvTitle
             // 
@@ -141,7 +144,7 @@
             this.btnAdd.Location = new System.Drawing.Point(17, 389);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -160,7 +163,7 @@
             this.btnDelete.Location = new System.Drawing.Point(112, 389);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 3;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -170,7 +173,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(208, 389);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
