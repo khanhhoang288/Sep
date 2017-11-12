@@ -61,9 +61,29 @@ namespace VideoRental
 
 
             LoadDataGridView(dgvReservation, rebll.getAllReservation());
+
+
+            frmReservationTitle child = new frmReservationTitle();
+            child.Reservationid = Convert.ToInt32(rebll.maxReservationlID().ToString());
+            child.Show();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtView_Click(object sender, EventArgs e)
+        {
+            
+
+
+            frmReservationTitle child = new frmReservationTitle();
+            child.Reservationid = Convert.ToInt32(rebll.maxReservationlID().ToString());
+            child.Show();
+        }
+
+        private void dgvReservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

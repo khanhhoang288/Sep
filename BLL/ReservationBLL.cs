@@ -84,5 +84,19 @@ namespace BLL
             }
             return false;
         }
+
+
+        public int maxReservationlID()
+        {
+            int a = 0;
+            foreach (tbl_Reservation item in db.tbl_Reservations.ToList())
+            {
+                if (item.ReservationID > a)
+                {
+                    a = item.ReservationID;
+                }
+            }
+            return a;
+        }
     }
 }
