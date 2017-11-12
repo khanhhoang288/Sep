@@ -774,6 +774,10 @@ namespace DAL
 		
 		private int _DiskID;
 		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _ReturnDate;
+		
 		private EntityRef<tbl_Disk> _tbl_Disk;
 		
 		private EntityRef<tbl_Rental> _tbl_Rental;
@@ -786,6 +790,10 @@ namespace DAL
     partial void OnRentalIDChanged();
     partial void OnDiskIDChanging(int value);
     partial void OnDiskIDChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    partial void OnReturnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnReturnDateChanged();
     #endregion
 		
 		public tbl_DiskRental()
@@ -839,6 +847,46 @@ namespace DAL
 					this._DiskID = value;
 					this.SendPropertyChanged("DiskID");
 					this.OnDiskIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReturnDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ReturnDate
+		{
+			get
+			{
+				return this._ReturnDate;
+			}
+			set
+			{
+				if ((this._ReturnDate != value))
+				{
+					this.OnReturnDateChanging(value);
+					this.SendPropertyChanging();
+					this._ReturnDate = value;
+					this.SendPropertyChanged("ReturnDate");
+					this.OnReturnDateChanged();
 				}
 			}
 		}

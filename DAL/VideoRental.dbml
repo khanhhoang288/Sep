@@ -34,6 +34,8 @@
     <Type Name="tbl_DiskRental">
       <Column Name="RentalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="tbl_Disk_tbl_DiskRental" Member="tbl_Disk" ThisKey="DiskID" OtherKey="DiskID" Type="tbl_Disk" IsForeignKey="true" />
       <Association Name="tbl_Rental_tbl_DiskRental" Member="tbl_Rental" ThisKey="RentalID" OtherKey="RentalID" Type="tbl_Rental" IsForeignKey="true" />
     </Type>
