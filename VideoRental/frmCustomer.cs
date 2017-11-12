@@ -24,12 +24,17 @@ namespace VideoRental
             listkh = khbll.GetAllCustomer();
 
 
-            // LoadDataGridView(dtGvCustomer, listkh);
+             LoadDataGridView(dtGvCustomer, listkh);
 
         }
         public void LoadDataGridView(DataGridView dgv, List<eCustomer> l)
         {
-
+            dgv.DataSource = l;
+            dtGvCustomer.AutoResizeRows();
+            dtGvCustomer.Columns[0].HeaderText = "Địa Chỉ";
+            dtGvCustomer.Columns[1].HeaderText = "Mã Khách Hàng";
+            dtGvCustomer.Columns[2].HeaderText = "Tên Khách Hàng";
+            dtGvCustomer.Columns[3].HeaderText = "Phone Number";
         }
 
 
