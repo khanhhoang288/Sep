@@ -37,7 +37,7 @@ namespace VideoRental
 
         private void frmRental_Load(object sender, EventArgs e)
         {
-            //lblRentalID.Visible = false;
+            lblRentalID.Visible = false;
             LoadComboBoxCustomer();
             //LoadComboBoxCustomer1(cbll.GetAllCustomer(), "1");
             dgvRental.ReadOnly=true;
@@ -65,6 +65,14 @@ namespace VideoRental
         public void LoadDataGridView(DataGridView dgv, List<eRental> l)
         {
             dgv.DataSource = l;
+            dgvRental.AutoResizeRows();
+            dgvRental.Columns[0].HeaderText = "Mã Thuê";
+            //dgvRental.Columns[0].Width = 150;
+
+            dgvRental.Columns[1].HeaderText = "Mã Khách Hàng";
+            //dgvRental.Columns[1].Width = 150;
+            dgvRental.Columns[2].HeaderText = "Ngày Thuê";
+            //dgvRental.Columns[2].Width = 300;
         }
 
         public bool checkInput()
@@ -117,11 +125,11 @@ namespace VideoRental
 
             rentalbll.insertRental(rental);
 
-            
 
-            LoadDataGridView(dgvRental, rentalbll.getAllRental());
 
-            
+            //LoadDataGridView(dgvRental, rentalbll.getAllRental());
+
+            LoadDataGridView(dgvRental, rentalbll.getRentalByCustomerID(Convert.ToInt32(cmbCustomerID.Text)));
             frmDiskRental child = new frmDiskRental();
             child.Rentalid = Convert.ToInt32( rentalbll.maxRentalID().ToString());
             child.Show();

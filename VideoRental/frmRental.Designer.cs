@@ -41,31 +41,36 @@
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSetBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpRental
             // 
-            this.dtpRental.Location = new System.Drawing.Point(346, 59);
+            this.dtpRental.Location = new System.Drawing.Point(435, 24);
             this.dtpRental.Name = "dtpRental";
-            this.dtpRental.Size = new System.Drawing.Size(200, 20);
+            this.dtpRental.Size = new System.Drawing.Size(231, 20);
             this.dtpRental.TabIndex = 1;
             // 
             // dgvRental
             // 
             this.dgvRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRental.Location = new System.Drawing.Point(33, 155);
+            this.dgvRental.Location = new System.Drawing.Point(372, 67);
             this.dgvRental.Name = "dgvRental";
-            this.dgvRental.Size = new System.Drawing.Size(437, 154);
+            this.dgvRental.Size = new System.Drawing.Size(400, 369);
             this.dgvRental.TabIndex = 2;
             this.dgvRental.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvRental_RowStateChanged);
             // 
             // lblRentalID
             // 
             this.lblRentalID.AutoSize = true;
-            this.lblRentalID.Location = new System.Drawing.Point(30, 12);
+            this.lblRentalID.Location = new System.Drawing.Point(12, 439);
             this.lblRentalID.Name = "lblRentalID";
             this.lblRentalID.Size = new System.Drawing.Size(59, 13);
             this.lblRentalID.TabIndex = 3;
@@ -73,38 +78,38 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(575, 171);
+            this.btnAdd.Location = new System.Drawing.Point(697, 20);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Thuê Đĩa";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 65);
+            this.label1.Location = new System.Drawing.Point(15, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "CustomerID";
+            this.label1.Text = "Mã Khách Hàng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 65);
+            this.label2.Location = new System.Drawing.Point(369, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "rental date";
+            this.label2.Text = "Ngày Thuê";
             // 
             // cmbCustomerID
             // 
             this.cmbCustomerID.FormattingEnabled = true;
-            this.cmbCustomerID.Location = new System.Drawing.Point(132, 65);
+            this.cmbCustomerID.Location = new System.Drawing.Point(108, 22);
             this.cmbCustomerID.Name = "cmbCustomerID";
-            this.cmbCustomerID.Size = new System.Drawing.Size(121, 21);
+            this.cmbCustomerID.Size = new System.Drawing.Size(206, 21);
             this.cmbCustomerID.TabIndex = 8;
             this.cmbCustomerID.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerID_SelectedIndexChanged);
             this.cmbCustomerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCustomerID_KeyPress_1);
@@ -122,38 +127,75 @@
             // lblCustomerName
             // 
             this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(67, 127);
+            this.lblCustomerName.Location = new System.Drawing.Point(104, 27);
             this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(35, 13);
+            this.lblCustomerName.Size = new System.Drawing.Size(0, 13);
             this.lblCustomerName.TabIndex = 9;
-            this.lblCustomerName.Text = "label3";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(218, 127);
+            this.lblAddress.Location = new System.Drawing.Point(56, 54);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(35, 13);
+            this.lblAddress.Size = new System.Drawing.Size(0, 13);
             this.lblAddress.TabIndex = 9;
-            this.lblAddress.Text = "label3";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(362, 127);
+            this.lblPhone.Location = new System.Drawing.Point(87, 90);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(35, 13);
+            this.lblPhone.Size = new System.Drawing.Size(0, 13);
             this.lblPhone.TabIndex = 9;
-            this.lblPhone.Text = "label3";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblPhone);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblAddress);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblCustomerName);
+            this.groupBox1.Location = new System.Drawing.Point(18, 67);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(348, 369);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông Tin Khách Hàng";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Tên Khách Hàng:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Địa Chỉ:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Số Điện Thoại:";
             // 
             // frmRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 354);
-            this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblCustomerName);
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbCustomerID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -167,6 +209,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRental)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSetBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +229,9 @@
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }
