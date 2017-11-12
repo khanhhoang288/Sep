@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using DAL;
+using System.Data.Linq;
+using System.Data.Linq.SqlClient;
 
 namespace BLL
 {
@@ -94,6 +96,30 @@ namespace BLL
             catch { return false; }
         }
 
+        public List<eCustomer> searchCustomer(string cid)
+        {
+            List<eCustomer> ls = new List<eCustomer>();
+            var list = from c in DB.tbl_Customers
+                       where SqlMethods.Like(Convert.ToString(c.CustomerID), cid)
+                       select c;
+            foreach (tbl_Customer item in list)
+            {
+                eCustomer cus = new eCustomer();
+                cus.CustomerID = item.CustomerID;
+                cus.CustomerName = item.CustomerName;
+                cus.Address = item.Address;
+                cus.PhoneNumber = item.PhoneNumber;
+
+                ls.Add(cus);
+
+            }
+
+
+
+            //var list = DB.tbl_Customers.Where(x => x.CustomerID.COn ));
+
+            return ls;
+        }
 
     }
 }

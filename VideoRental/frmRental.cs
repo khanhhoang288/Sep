@@ -18,11 +18,16 @@ namespace VideoRental
 
         List<eRental> listrental;
         RentalBLL rentalbll;
+        CustomerBLL cbll;
+        List<eCustomer> lsc;
+
         public frmRental()
         {
             InitializeComponent();
             listrental = new List<eRental>();
             rentalbll = new RentalBLL();
+            cbll = new CustomerBLL();
+            lsc = new List<eCustomer>();
 
             latechargebll = new LateChargeBLL();
 
@@ -33,31 +38,69 @@ namespace VideoRental
         private void frmRental_Load(object sender, EventArgs e)
         {
             //lblRentalID.Visible = false;
+            LoadComboBoxCustomer();
+            //LoadComboBoxCustomer1(cbll.GetAllCustomer(), "1");
+            dgvRental.ReadOnly=true;
+            
         }
 
+        public void LoadComboBoxCustomer()
+        {
+            List<eCustomer> ls = cbll.GetAllCustomer();
+            foreach (eCustomer item in ls)
+            {
+                cmbCustomerID.Items.Add(item.CustomerID);
+            }
+        }
+
+        public void LoadComboBoxCustomer1(List<eCustomer> l,string cid)
+        {
+            l = cbll.searchCustomer(cid);
+            foreach (eCustomer item in l)
+            {
+                cmbCustomerID.Items.Add(item.CustomerID);
+            }
+        }
         public void LoadDataGridView(DataGridView dgv, List<eRental> l)
         {
             dgv.DataSource = l;
         }
 
+        public bool checkInput()
+        {
+            if (cmbCustomerID.Text.Trim() == "")
+            {
+                MessageBox.Show("ban chua nhap title name");
+                cmbCustomerID.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
         private void dgvRental_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            if (dgvRental.SelectedRows.Count > 0)
+            try
             {
-                lblRentalID.Text= e.Row.Cells[0].Value.ToString();
-                txtCustomerID.Text = e.Row.Cells[1].Value.ToString();
-                dtpRental.Text = e.Row.Cells[2].Value.ToString();
-
-
+                if (dgvRental.SelectedRows.Count > 0)
+                {
+                    lblRentalID.Text = e.Row.Cells[0].Value.ToString();
+                    cmbCustomerID.Text = e.Row.Cells[1].Value.ToString();
+                    dtpRental.Text = e.Row.Cells[2].Value.ToString();
+                }
+            }
+            catch (Exception)
+            {
 
             }
+            
         }
 
         public void addrental()
         {
             eRental rental = new eRental();
 
-            rental.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            rental.CustomerID = Convert.ToInt32(cmbCustomerID.Text);
             rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
 
             rentalbll.insertRental(rental);
@@ -78,7 +121,7 @@ namespace VideoRental
            
 
 
-            decimal lc = latechargebll.sumLateChargeByCustomerID(Convert.ToInt32(txtCustomerID.Text));
+            decimal lc = latechargebll.sumLateChargeByCustomerID(Convert.ToInt32(cmbCustomerID.Text));
             if (lc <= 0)
             {
                 addrental();
@@ -91,7 +134,7 @@ namespace VideoRental
                 if (dialogResult == DialogResult.Yes)
                 {
                     frmLateCharge child = new frmLateCharge();
-                    child.Cid = Convert.ToInt32(txtCustomerID.Text);
+                    child.Cid = Convert.ToInt32(cmbCustomerID.Text);
                     child.Show();
                 }
                 else if (dialogResult == DialogResult.No)
@@ -112,12 +155,53 @@ namespace VideoRental
 
             eRental rental = new eRental();
 
-            rental.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            rental.CustomerID = Convert.ToInt32(cmbCustomerID.Text);
             rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
 
             frmDiskRental child = new frmDiskRental();
             child.Rentalid = Convert.ToInt32( lblRentalID.Text);
             child.Show();
+        }
+
+        private void cmbCustomerID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //List<eCustomer> ls = new List<eCustomer>();
+            //string cuid = cmbCustomerID.Text;
+            //MessageBox.Show(cuid.ToString());
+            //ls = cbll.searchCustomer(cuid);
+            //MessageBox.Show(cmbCustomerID.Text);
+            //LoadComboBoxCustomer1(ls,cmbCustomerID.Text);
+            //MessageBox.Show("1");
+        }
+
+        private void cmbCustomerID_KeyDown(object sender, KeyEventArgs e)
+        {
+            //List<eCustomer> ls = new List<eCustomer>();
+            //string cuid = cmbCustomerID.Text;
+            //MessageBox.Show(cuid.ToString());
+            //ls = cbll.searchCustomer(cuid);
+            //MessageBox.Show(cmbCustomerID.Text);
+            //LoadComboBoxCustomer1(ls, cmbCustomerID.Text);
+            //MessageBox.Show("1");
+        }
+
+        private void cmbCustomerID_KeyUp(object sender, KeyEventArgs e)
+        {
+            //List<eCustomer> ls = new List<eCustomer>();
+            //ls = cbll.searchCustomer(cmbCustomerID.Text);
+            //LoadComboBoxCustomer1(ls, cmbCustomerID.Text);
+            //MessageBox.Show("3");
+        }
+
+        private void cmbCustomerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            eCustomer ec = new eCustomer();
+            ec = cbll.getOneCustomer(Convert.ToInt32(cmbCustomerID.Text));
+            lblCustomerName.Text = ec.CustomerName;
+            lblAddress.Text = ec.Address;
+            lblPhone.Text = ec.PhoneNumber;
+
+            LoadDataGridView(dgvRental, rentalbll.getRentalByCustomerID(Convert.ToInt32(cmbCustomerID.Text)));
         }
     }
 }
