@@ -27,6 +27,7 @@ namespace BLL
                 eDiskRental temp = new eDiskRental();
                 temp.RentalID = item.RentalID;
                 temp.DiskID = item.DiskID;
+                temp.Status = Convert.ToInt32( item.Status);
 
 
 
@@ -45,6 +46,7 @@ namespace BLL
                 eDiskRental temp = new eDiskRental();
                 temp.RentalID = item.RentalID;
                 temp.DiskID = item.DiskID;
+                temp.Status = Convert.ToInt32( item.Status);
 
                 ls.Add(temp);
             }
@@ -57,6 +59,8 @@ namespace BLL
 
             temp.RentalID = e.RentalID;
             temp.DiskID = e.DiskID;
+            temp.Status = 0;
+            temp.ReturnDate = DateTime.Now;
 
             db.tbl_DiskRentals.InsertOnSubmit(temp);
             db.SubmitChanges();

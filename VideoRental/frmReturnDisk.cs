@@ -63,5 +63,10 @@ namespace VideoRental
 
 
         }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

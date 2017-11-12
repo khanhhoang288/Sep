@@ -37,6 +37,7 @@
             this.txtdiskid = new System.Windows.Forms.TextBox();
             this.txtcustomerid = new System.Windows.Forms.TextBox();
             this.dtreturn = new System.Windows.Forms.DateTimePicker();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -118,11 +119,22 @@
             this.dtreturn.Size = new System.Drawing.Size(235, 20);
             this.dtreturn.TabIndex = 9;
             // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(457, 77);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 10;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
             // frmReturnDisk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 337);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.dtreturn);
             this.Controls.Add(this.txtcustomerid);
             this.Controls.Add(this.txtdiskid);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.TextBox txtdiskid;
         private System.Windows.Forms.TextBox txtcustomerid;
         private System.Windows.Forms.DateTimePicker dtreturn;
+        private System.Windows.Forms.Button btnCheck;
     }
 }
