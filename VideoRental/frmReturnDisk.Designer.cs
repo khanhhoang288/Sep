@@ -38,6 +38,7 @@
             this.txtcustomerid = new System.Windows.Forms.TextBox();
             this.dtreturn = new System.Windows.Forms.DateTimePicker();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.lblCustomerName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +122,7 @@
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(457, 77);
+            this.btnCheck.Location = new System.Drawing.Point(414, 82);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 10;
@@ -129,11 +130,21 @@
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
+            // lblCustomerName
+            // 
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Location = new System.Drawing.Point(561, 87);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(35, 13);
+            this.lblCustomerName.TabIndex = 11;
+            this.lblCustomerName.Text = "label5";
+            // 
             // frmReturnDisk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 337);
+            this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.dtreturn);
             this.Controls.Add(this.txtcustomerid);
@@ -164,5 +175,6 @@
         private System.Windows.Forms.TextBox txtcustomerid;
         private System.Windows.Forms.DateTimePicker dtreturn;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Label lblCustomerName;
     }
 }

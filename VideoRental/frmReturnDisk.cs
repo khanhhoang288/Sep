@@ -16,9 +16,16 @@ namespace VideoRental
     {
         
         ReturnDiskBLL rtbll;
+        DiskRentalBLL drbll;
+        RentalBLL rbll;
+        CustomerBLL cbll;
         public frmReturnDisk()
         {
             InitializeComponent();
+            rtbll = new ReturnDiskBLL();
+            drbll = new DiskRentalBLL();
+            rbll = new RentalBLL();
+            cbll= new CustomerBLL();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,28 +52,50 @@ namespace VideoRental
 
         private void btnreturn_Click(object sender, EventArgs e)
         {
-            rtbll = new ReturnDiskBLL();
-            eReturn ert = new eReturn();
-            ert.CustomerID = Convert.ToInt32(txtcustomerid.Text);
-            ert.DiskID = Convert.ToInt32(txtdiskid.Text);
-            ert.ReturnDate = Convert.ToDateTime(dtreturn.Text);
+            //rtbll = new ReturnDiskBLL();
+            //eReturn ert = new eReturn();
+            //ert.CustomerID = Convert.ToInt32(txtcustomerid.Text);
+            //ert.DiskID = Convert.ToInt32(txtdiskid.Text);
+            //ert.ReturnDate = Convert.ToDateTime(dtreturn.Text);
 
-            int temp = rtbll.ReturnDisk(ert);
-            if (temp >= 0 )
-                MessageBox.Show("Trễ", "Noti", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            else
-            {
-                MessageBox.Show("Trả đĩa thành công!", "Noti!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            //int temp = rtbll.ReturnDisk(ert);
+            //if (temp >= 0 )
+            //    MessageBox.Show("Trễ", "Noti", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            //else
+            //{
+            //    MessageBox.Show("Trả đĩa thành công!", "Noti!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                
-            }
 
+            //}
+
+
+            //0 la chua tra, 1 la tra roi
+            eDiskRental dr = new eDiskRental();
+
+            //MessageBox.Show(txtdiskid.Text);
+            dr = drbll.getDiskNoRentalByDiskID(Convert.ToInt32(txtdiskid.Text));
+            //MessageBox.Show(dr.RentalID.ToString());
+            drbll.updateStatusDiskRental(dr, 1);
+
+            
 
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
+            eDiskRental dr = new eDiskRental();
 
+            //MessageBox.Show(txtdiskid.Text);
+            dr = drbll.getDiskNoRentalByDiskID(Convert.ToInt32(txtdiskid.Text));
+
+            eRental r = new eRental();
+            r = rbll.getOneRental(dr.RentalID);
+
+            eCustomer c = new eCustomer();
+            c = cbll.getOneCustomer(r.CustomerID);
+
+            lblCustomerName.Text = c.CustomerName;
+            //MessageBox.Show(r.CustomerID.ToString());
         }
     }
 }

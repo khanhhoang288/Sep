@@ -30,6 +30,18 @@ namespace BLL
             return lkh;
         }
 
+        
+        public eCustomer getOneCustomer(int cid)
+        {
+            eCustomer e = new eCustomer();
+            var item = DB.tbl_Customers.Where(x => x.CustomerID == cid).FirstOrDefault();
+            e.CustomerID = item.CustomerID;
+            e.CustomerName= item.CustomerName;
+            e.Address=item.Address;
+            e.PhoneNumber=item.PhoneNumber;
+
+            return e;
+        }
         public int AddCustomer(eCustomer kh)
         {
 

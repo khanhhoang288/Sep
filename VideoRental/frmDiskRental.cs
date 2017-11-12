@@ -95,11 +95,12 @@ namespace VideoRental
                 label1.Text = rentalid.ToString();
                 d.RentalID = Convert.ToInt32(label1.Text);
                 d.DiskID = Convert.ToInt32(txtDiskID.Text);
-
+                d.Status = 0;
+                d.ReturnDate = Convert.ToDateTime(DateTime.Now.ToString());
                 diskrentalbll.insertDiskRental(d);
                 //diskrentalbll.ins(rental);
 
-
+                MessageBox.Show(DateTime.Now.ToString());
 
                 LoadDataGridView1(dgvDiskRental, diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(label1.Text)));
 

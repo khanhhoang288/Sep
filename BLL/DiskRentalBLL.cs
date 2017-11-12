@@ -59,8 +59,8 @@ namespace BLL
 
             temp.RentalID = e.RentalID;
             temp.DiskID = e.DiskID;
-            temp.Status = 0;
-            temp.ReturnDate = DateTime.Now;
+            temp.Status = e.Status;
+            temp.ReturnDate = e.ReturnDate;
 
             db.tbl_DiskRentals.InsertOnSubmit(temp);
             db.SubmitChanges();
@@ -84,10 +84,47 @@ namespace BLL
         }
 
 
+        public List<eDiskRental> getDisRentalByStatus(int st)
+        {
+            List<eDiskRental> ls = new List<eDiskRental>();
+            var list = db.tbl_DiskRentals.Where(x => x.Status == st).ToList();
+            foreach (tbl_DiskRental item in list)
+            {
+                eDiskRental e = new eDiskRental();
+                e.RentalID = item.RentalID;
+                e.DiskID = item.DiskID;
+                e.Status = Convert.ToInt32( item.Status);
+                e.ReturnDate = Convert.ToDateTime( item.ReturnDate);
 
+                ls.Add(e);
+            }
+            return ls;
+        }
         
 
-        
+        //0 chua tra, 1 tra roi
+        public eDiskRental getDiskNoRentalByDiskID(int did)
+        {
+            eDiskRental e = new eDiskRental();
+            var d = db.tbl_DiskRentals.Where(x => x.DiskID == did && x.Status == 0).FirstOrDefault();
+            e.RentalID = d.RentalID;
+            e.DiskID = d.DiskID;
+            e.Status = Convert.ToInt32( d.Status);
+            e.ReturnDate = Convert.ToDateTime( d.ReturnDate);
+
+            return e;
+        }
+
+        public void updateStatusDiskRental(eDiskRental e,int st)
+        {
+            var item = db.tbl_DiskRentals.Where(x => x.RentalID == e.RentalID && x.DiskID == e.DiskID).FirstOrDefault();
+            item.RentalID = e.RentalID;
+            item.DiskID = e.DiskID;
+            item.Status = st;
+            item.ReturnDate = e.ReturnDate;
+
+            db.SubmitChanges();
+        }
 
     }
 }

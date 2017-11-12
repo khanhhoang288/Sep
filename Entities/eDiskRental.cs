@@ -67,7 +67,7 @@ namespace Entities
             this.DiskID = 0;
             this.RentalID = 0;
             this.status = 0;
-            this.ReturnDate = Convert.ToDateTime("1/1/2000");
+            this.ReturnDate = DateTime.Now;
         }
 
         public eDiskRental(int did, int rid, int st, DateTime rd)

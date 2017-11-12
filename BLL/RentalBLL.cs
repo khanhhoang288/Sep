@@ -54,6 +54,17 @@ namespace BLL
             return ls;
         }
 
+
+        public eRental getOneRental(int rid)
+        {
+            eRental e = new eRental();
+            var item = db.tbl_Rentals.Where(x => x.RentalID == rid).FirstOrDefault();
+            e.RentalID = item.RentalID;
+            e.RentalDate = Convert.ToDateTime( item.RentalDate);
+            e.CustomerID = Convert.ToInt32( item.CustomerID);
+
+            return e;
+        }
         public int getCustomerIDByLateChargeID(int lid)
         {
             var temp = db.tbl_Rentals.Where(x => x.RentalID == lid).FirstOrDefault();

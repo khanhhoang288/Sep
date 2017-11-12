@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.txtDiskID = new System.Windows.Forms.TextBox();
             this.dgvDiskRental = new System.Windows.Forms.DataGridView();
-            this.rentalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblDiskRentalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.videoRentalDataSet1 = new VideoRental.VideoRentalDataSet1();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -59,29 +57,12 @@
             // 
             // dgvDiskRental
             // 
-            this.dgvDiskRental.AutoGenerateColumns = false;
             this.dgvDiskRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiskRental.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rentalIDDataGridViewTextBoxColumn,
-            this.diskIDDataGridViewTextBoxColumn});
-            this.dgvDiskRental.DataSource = this.tblDiskRentalBindingSource;
-            this.dgvDiskRental.Location = new System.Drawing.Point(76, 163);
+            this.dgvDiskRental.Location = new System.Drawing.Point(12, 159);
             this.dgvDiskRental.Name = "dgvDiskRental";
-            this.dgvDiskRental.Size = new System.Drawing.Size(298, 150);
+            this.dgvDiskRental.Size = new System.Drawing.Size(497, 150);
             this.dgvDiskRental.TabIndex = 1;
             this.dgvDiskRental.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDiskRental_RowStateChanged);
-            // 
-            // rentalIDDataGridViewTextBoxColumn
-            // 
-            this.rentalIDDataGridViewTextBoxColumn.DataPropertyName = "RentalID";
-            this.rentalIDDataGridViewTextBoxColumn.HeaderText = "RentalID";
-            this.rentalIDDataGridViewTextBoxColumn.Name = "rentalIDDataGridViewTextBoxColumn";
-            // 
-            // diskIDDataGridViewTextBoxColumn
-            // 
-            this.diskIDDataGridViewTextBoxColumn.DataPropertyName = "DiskID";
-            this.diskIDDataGridViewTextBoxColumn.HeaderText = "DiskID";
-            this.diskIDDataGridViewTextBoxColumn.Name = "diskIDDataGridViewTextBoxColumn";
             // 
             // tblDiskRentalBindingSource
             // 
@@ -146,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(421, 208);
+            this.label2.Location = new System.Drawing.Point(515, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 6;
@@ -187,8 +168,6 @@
         private VideoRentalDataSet1 videoRentalDataSet1;
         private System.Windows.Forms.BindingSource tblDiskRentalBindingSource;
         private VideoRentalDataSet1TableAdapters.tbl_DiskRentalTableAdapter tbl_DiskRentalTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rentalIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diskIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtSumRentCharge;
