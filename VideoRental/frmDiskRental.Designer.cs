@@ -41,6 +41,8 @@
             this.tbl_DiskRentalTableAdapter = new VideoRental.VideoRentalDataSet1TableAdapters.tbl_DiskRentalTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtSumRentCharge = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiskRental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblDiskRentalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSet1)).BeginInit();
@@ -65,7 +67,7 @@
             this.dgvDiskRental.DataSource = this.tblDiskRentalBindingSource;
             this.dgvDiskRental.Location = new System.Drawing.Point(76, 163);
             this.dgvDiskRental.Name = "dgvDiskRental";
-            this.dgvDiskRental.Size = new System.Drawing.Size(492, 150);
+            this.dgvDiskRental.Size = new System.Drawing.Size(298, 150);
             this.dgvDiskRental.TabIndex = 1;
             this.dgvDiskRental.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDiskRental_RowStateChanged);
             // 
@@ -134,11 +136,29 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // txtSumRentCharge
+            // 
+            this.txtSumRentCharge.Location = new System.Drawing.Point(518, 201);
+            this.txtSumRentCharge.Name = "txtSumRentCharge";
+            this.txtSumRentCharge.Size = new System.Drawing.Size(100, 20);
+            this.txtSumRentCharge.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(421, 208);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "sum rental charge";
+            // 
             // frmDiskRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 352);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSumRentCharge);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
@@ -171,5 +191,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diskIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtSumRentCharge;
+        private System.Windows.Forms.Label label2;
     }
 }

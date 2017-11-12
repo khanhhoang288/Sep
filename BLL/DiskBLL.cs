@@ -54,6 +54,18 @@ namespace BLL
             return ls;
         }
 
+        public eDisk getOneDisk(int did)
+        {
+            eDisk d = new eDisk();
+            var item = db.tbl_Disks.Where(x => x.DiskID == did).FirstOrDefault();
+            d.DiskID = item.DiskID;
+            d.TitleID = Convert.ToInt32( item.TitleID);
+            d.DiskStatus = item.DiskStatus;
+            d.DiskCode = item.DiskCode;
+
+            return d;
+        }
+
         public List<eDisk> getDiskByTitleID(int titleid)
         {
             List<eDisk> ls = new List<eDisk>();
@@ -109,5 +121,15 @@ namespace BLL
 
             db.SubmitChanges();
         }
+
+        public int getTitleIDByDiskID(int did)
+        {
+            eDisk d = new eDisk();
+            var item = db.tbl_Disks.Where(x => x.DiskID == did).FirstOrDefault();
+            
+            return d.TitleID;
+        }
+
+
     }
 }

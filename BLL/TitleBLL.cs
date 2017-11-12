@@ -38,20 +38,35 @@ namespace BLL
             return ls;
         }
 
-        //public eTitle getTitleByID(int id)
-        //{
-        //    eTitle t = new eTitle();
-        //    var temp = db.tbl_Titles.Where(x => x.TitleID == id).FirstOrDefault();
-        //    t.TitleID = temp.TitleID;
-        //    t.TitleName = temp.TitleName;
-        //    t.RentalPeriod = Convert.ToInt32( temp.RentalPeriod);
-        //    t.RentalCharge = Convert.ToInt32( temp.RentalCharge);
-        //    t.TitleStatus = temp.TitleStatus;
-        //    t.Quantity = Convert.ToInt32( temp.Quantity);
+        public eTitle getOneTitle(int tid)
+        {
+            var item = db.tbl_Titles.Where(x => x.TitleID == tid).FirstOrDefault();
 
-        //    return t;
-        //}
-        
+            eTitle temp = new eTitle();
+            temp.TitleID = tid;
+            temp.TitleName = item.TitleName;
+            temp.RentalPeriod = Convert.ToInt32(item.RentalPeriod);
+            temp.RentalCharge = Convert.ToInt32(item.RentalCharge);
+            temp.TitleStatus = item.TitleStatus;
+            temp.Quantity = Convert.ToInt32(item.Quantity);
+
+            return temp;
+        }
+
+        public eTitle getTitleByID(int id)
+        {
+            eTitle t = new eTitle();
+            var temp = db.tbl_Titles.Where(x => x.TitleID == id).FirstOrDefault();
+            t.TitleID = temp.TitleID;
+            t.TitleName = temp.TitleName;
+            t.RentalPeriod = Convert.ToInt32(temp.RentalPeriod);
+            t.RentalCharge = Convert.ToInt32(temp.RentalCharge);
+            t.TitleStatus = temp.TitleStatus;
+            t.Quantity = Convert.ToInt32(temp.Quantity);
+
+            return t;
+        }
+
         public void insertTitle(eTitle title)
         {
             tbl_Title temp = new tbl_Title();
@@ -92,7 +107,11 @@ namespace BLL
             return false;
         }
 
-
+        public decimal getRentalCharge(int tid)
+        {
+            var item = db.tbl_Titles.Where(x => x.TitleID == tid).FirstOrDefault();
+            return Convert.ToDecimal(item.RentalCharge);
+        }
 
     }
 }

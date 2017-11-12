@@ -32,12 +32,18 @@ namespace VideoRental
         //LateChargeBLL latechargebll;
 
         List<eDiskRental> listdiskrental;
+
         DiskRentalBLL diskrentalbll;
+        DiskBLL dbll;
+        TitleBLL tbll;
         public frmDiskRental()
         {
             InitializeComponent();
             listdiskrental = new List<eDiskRental>();
             diskrentalbll = new DiskRentalBLL();
+            dbll = new DiskBLL();
+            tbll = new TitleBLL();
+
             //label1.Text = rentalid.ToString();
             //listdiskrental = diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(rentalid));
             //LoadDataGridView1(dgvDiskRental, listdiskrental);
@@ -52,6 +58,7 @@ namespace VideoRental
             
             listdiskrental = diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(rentalid));
             LoadDataGridView1(dgvDiskRental, listdiskrental);
+            txtSumRentCharge.Text = "0";
 
         }
 
@@ -65,18 +72,54 @@ namespace VideoRental
             d.DataSource = list;
         }
 
+        public bool checkInput()
+        {
+            foreach(eDiskRental item in diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(rentalid)))
+            {
+                if (item.DiskID== Convert.ToInt32(txtDiskID.Text))
+                {
+                    MessageBox.Show("Dia nay da duoc thue, ban hay chon dia khac");
+                    txtDiskID.Clear();
+                    txtDiskID.Focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+        
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (checkInput()==true)
+            {
+                eDiskRental d = new eDiskRental();
+                label1.Text = rentalid.ToString();
+                d.RentalID = Convert.ToInt32(label1.Text);
+                d.DiskID = Convert.ToInt32(txtDiskID.Text);
 
-            eDiskRental d = new eDiskRental();
-            label1.Text = rentalid.ToString();
-            d.RentalID = Convert.ToInt32( label1.Text);
-            d.DiskID = Convert.ToInt32(txtDiskID.Text);
+                diskrentalbll.insertDiskRental(d);
+                //diskrentalbll.ins(rental);
 
-            diskrentalbll.insertDiskRental(d);
-            //diskrentalbll.ins(rental);
 
-            LoadDataGridView1(dgvDiskRental, diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(label1.Text)));
+
+                LoadDataGridView1(dgvDiskRental, diskrentalbll.getAllDiskRentalByRentalID(Convert.ToInt32(label1.Text)));
+
+                //int tid = diskrentalbll.getTitleIDByDiskID(Convert.ToInt32(txtDiskID.Text));
+                //decimal chargedisk = diskrentalbll.getRentalCharge(tid);
+                //decimal sumrental = Convert.ToDecimal(txtSumRentCharge.Text) + chargedisk;
+                //int tid = dbll.getTitleIDByDiskID(Convert.ToInt32(txtDiskID.Text));
+
+                eDisk ed = new eDisk();
+                ed = dbll.getOneDisk(Convert.ToInt32(txtDiskID.Text));
+
+                eTitle titletemp = tbll.getOneTitle(Convert.ToInt32(ed.TitleID));
+                //MessageBox.Show(titletemp.RentalCharge.ToString());
+                decimal chargedisk = tbll.getRentalCharge(Convert.ToInt32(titletemp.RentalCharge));
+                decimal sumrental = Convert.ToDecimal(txtSumRentCharge.Text) + titletemp.RentalCharge;
+                txtSumRentCharge.Text = sumrental.ToString();
+            }
+
+           
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
