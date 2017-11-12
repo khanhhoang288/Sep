@@ -118,6 +118,12 @@
     <Compile Include="frmReservationTitle.Designer.cs">
       <DependentUpon>frmReservationTitle.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReturnDisk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReturnDisk.Designer.cs">
+      <DependentUpon>frmReturnDisk.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTitle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReservationTitle.resx">
       <DependentUpon>frmReservationTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReturnDisk.resx">
+      <DependentUpon>frmReturnDisk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTitle.resx">
       <DependentUpon>frmTitle.cs</DependentUpon>
