@@ -29,7 +29,8 @@ namespace VideoRental
 
         private void frmTitle_Load(object sender, EventArgs e)
         {
-            lblID.Visible = false;
+            lblID.Visible = true;
+            txtTitleStatus.Text = "0";
         }
 
         public void LoadDataGridView(DataGridView dgv, List<eTitle> l)
@@ -51,17 +52,60 @@ namespace VideoRental
            //// dgv.Columns[2].Width = 170;
         }
 
+
+        public bool checkDataInput()
+        {
+            if(txtTitleName.Text.Trim()=="")
+            {
+                MessageBox.Show("ban chua nhap title name");
+                txtTitleName.Focus();
+                return false;
+            }
+            if (txtRentalPeriod.Text.Trim() == "")
+            {
+                MessageBox.Show("ban chua nhap txtRentalPeriod");
+                txtRentalPeriod.Focus();
+                return false;
+            }
+            if (txtRentalCharge.Text.Trim() == "")
+            {
+                MessageBox.Show("ban chua nhap txtRentalCharge");
+                txtRentalCharge.Focus();
+                return false;
+            }
+            if (txtTitleStatus.Text.Trim() == "")
+            {
+                MessageBox.Show("ban chua nhap txtTitleStatus");
+                txtTitleStatus.Focus();
+                return false;
+            }
+            if (txtQuantity.Text.Trim() == "")
+            {
+                MessageBox.Show("ban chua nhap txtQuantity");
+                txtQuantity.Focus();
+                return false;
+            }
+
+            return true;
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            eTitle title = new eTitle();
-            title.TitleName = txtTitleName.Text;
-            title.RentalPeriod = Convert.ToInt32(txtRentalPeriod.Text);
-            title.RentalCharge = Convert.ToDecimal(txtRentalCharge.Text);
-            title.TitleStatus = txtTitleStatus.Text;
-            title.Quantity = Convert.ToInt32( txtQuantity.Text);
+            if (checkDataInput() == true)
+            {
+                eTitle title = new eTitle();
+                title.TitleName = txtTitleName.Text;
+                title.RentalPeriod = Convert.ToInt32(txtRentalPeriod.Text);
+                title.RentalCharge = Convert.ToDecimal(txtRentalCharge.Text);
+                title.TitleStatus = txtTitleStatus.Text;
+                title.Quantity = Convert.ToInt32(txtQuantity.Text);
 
-            titlebll.insertTitle(title);
-            LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+                titlebll.insertTitle(title);
+                LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+            }
+           
+                
+            
+            
         }
 
         private void dgvTitle_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -108,6 +152,48 @@ namespace VideoRental
             titlebll.updateTitle(temp);
 
             LoadDataGridView(dgvTitle, titlebll.getAllTitle());
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRentalPeriod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRentalCharge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
