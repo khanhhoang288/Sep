@@ -33,7 +33,6 @@
             this.dgvRental = new System.Windows.Forms.DataGridView();
             this.lblRentalID = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCustomerID = new System.Windows.Forms.ComboBox();
@@ -82,16 +81,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(575, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -118,6 +107,7 @@
             this.cmbCustomerID.Size = new System.Drawing.Size(121, 21);
             this.cmbCustomerID.TabIndex = 8;
             this.cmbCustomerID.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerID_SelectedIndexChanged);
+            this.cmbCustomerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCustomerID_KeyPress_1);
             // 
             // videoRentalDataSet
             // 
@@ -167,7 +157,6 @@
             this.Controls.Add(this.cmbCustomerID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblRentalID);
             this.Controls.Add(this.dgvRental);
@@ -188,7 +177,6 @@
         private System.Windows.Forms.DataGridView dgvRental;
         private System.Windows.Forms.Label lblRentalID;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbCustomerID;

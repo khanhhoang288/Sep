@@ -41,7 +41,8 @@ namespace VideoRental
             LoadComboBoxCustomer();
             //LoadComboBoxCustomer1(cbll.GetAllCustomer(), "1");
             dgvRental.ReadOnly=true;
-            
+            dgvRental.AllowUserToResizeRows = false;
+
         }
 
         public void LoadComboBoxCustomer()
@@ -74,7 +75,17 @@ namespace VideoRental
                 cmbCustomerID.Focus();
                 return false;
             }
-
+            try
+            {
+                Int32 n = Convert.ToInt32(cmbCustomerID.Text);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("so txtRentalPeriod qua lon");
+                cmbCustomerID.Text="";
+                cmbCustomerID.Focus();
+                return false;
+            }
             return true;
         }
 
@@ -98,6 +109,7 @@ namespace VideoRental
 
         public void addrental()
         {
+            
             eRental rental = new eRental();
 
             rental.CustomerID = Convert.ToInt32(cmbCustomerID.Text);
@@ -117,51 +129,64 @@ namespace VideoRental
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-           
-
-
-            decimal lc = latechargebll.sumLateChargeByCustomerID(Convert.ToInt32(cmbCustomerID.Text));
-            if (lc <= 0)
+            try
             {
-                addrental();
+                if (checkInput() == true)
+                {
+                    decimal lc = latechargebll.sumLateChargeByCustomerID(Convert.ToInt32(cmbCustomerID.Text));
+                    if (lc <= 0)
+                    {
+                        addrental();
 
 
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("ban muon thanh toan phi tra tre ko ?", "Late Charge", MessageBoxButtons.YesNoCancel);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            frmLateCharge child = new frmLateCharge();
+                            child.Cid = Convert.ToInt32(cmbCustomerID.Text);
+                            child.Show();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            addrental();
+                        }
+                        else if (dialogResult == DialogResult.Cancel)
+                        {
+                            //ko lam gi
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("ban muon thanh toan phi tra tre ko ?", "Late Charge", MessageBoxButtons.YesNoCancel);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    frmLateCharge child = new frmLateCharge();
-                    child.Cid = Convert.ToInt32(cmbCustomerID.Text);
-                    child.Show();
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    addrental();
-                }
-                else if (dialogResult == DialogResult.Cancel)
-                {
-                    //ko lam gi
-                }
+
+                MessageBox.Show("ko co khach hang nay trong he thong, vui long kiem tra lai");
+                cmbCustomerID.Text = "";
+                cmbCustomerID.Focus();
             }
+
+
+
+
 
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        //private void button1_Click(object sender, EventArgs e)
+        //{
 
-            eRental rental = new eRental();
+        //    eRental rental = new eRental();
 
-            rental.CustomerID = Convert.ToInt32(cmbCustomerID.Text);
-            rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
+        //    rental.CustomerID = Convert.ToInt32(cmbCustomerID.Text);
+        //    rental.RentalDate = Convert.ToDateTime(dtpRental.Text);
 
-            frmDiskRental child = new frmDiskRental();
-            child.Rentalid = Convert.ToInt32( lblRentalID.Text);
-            child.Show();
-        }
+        //    frmDiskRental child = new frmDiskRental();
+        //    child.Rentalid = Convert.ToInt32( lblRentalID.Text);
+        //    child.Show();
+        //}
 
         private void cmbCustomerID_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -202,6 +227,20 @@ namespace VideoRental
             lblPhone.Text = ec.PhoneNumber;
 
             LoadDataGridView(dgvRental, rentalbll.getRentalByCustomerID(Convert.ToInt32(cmbCustomerID.Text)));
+        }
+
+        private void cmbCustomerID_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
