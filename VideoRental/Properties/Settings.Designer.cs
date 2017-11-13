@@ -32,5 +32,27 @@ namespace VideoRental.Properties {
                 return ((string)(this["VideoRentalConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-IUBBN6M\\SQLEXPRESS;Initial Catalog=VideoRental;Integrated Sec" +
+            "urity=True")]
+        public string VideoRentalConnectionString1 {
+            get {
+                return ((string)(this["VideoRentalConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-IUBBN6M\\SQLEXPRESS;Initial Catalog=VideoRental;Persist Securi" +
+            "ty Info=True;User ID=sa;Password=504022215671min")]
+        public string VideoRentalConnectionString2 {
+            get {
+                return ((string)(this["VideoRentalConnectionString2"]));
+            }
+        }
     }
 }

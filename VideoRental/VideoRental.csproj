@@ -51,8 +51,11 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +67,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Frm7c.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm7c.Designer.cs">
+      <DependentUpon>Frm7c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frminforCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frminforCustomer.Designer.cs">
+      <DependentUpon>frminforCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAcount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +101,12 @@
     </Compile>
     <Compile Include="frmDiskManage.Designer.cs">
       <DependentUpon>frmDiskManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInforDiskRental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInforDiskRental.Designer.cs">
+      <DependentUpon>frmInforDiskRental.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLateCharge.cs">
       <SubType>Form</SubType>
@@ -142,6 +168,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VideoRentalDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VideoRentalDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoRentalDataSet4.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="7breport.rdlc" />
+    <EmbeddedResource Include="7cReport.rdlc" />
+    <EmbeddedResource Include="CustomerInfor.rdlc" />
+    <EmbeddedResource Include="Frm7c.resx">
+      <DependentUpon>Frm7c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frminforCustomer.resx">
+      <DependentUpon>frminforCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAcount.resx">
       <DependentUpon>frmAcount.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiskRental.resx">
       <DependentUpon>frmDiskRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInforDiskRental.resx">
+      <DependentUpon>frmInforDiskRental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLateCharge.resx">
       <DependentUpon>frmLateCharge.cs</DependentUpon>
@@ -184,6 +227,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -214,6 +269,17 @@
     </None>
     <None Include="VideoRentalDataSet1.xss">
       <DependentUpon>VideoRentalDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VideoRentalDataSet4.xsc">
+      <DependentUpon>VideoRentalDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="VideoRentalDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VideoRentalDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VideoRentalDataSet4.xss">
+      <DependentUpon>VideoRentalDataSet4.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
