@@ -35,7 +35,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
@@ -113,15 +112,6 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(638, 8);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(35, 13);
-            this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "label1";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -137,7 +127,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 526);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tabControl);
             this.Name = "frmMain";
@@ -157,7 +146,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label1;
     }

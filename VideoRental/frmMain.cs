@@ -91,13 +91,15 @@ namespace VideoRental
             frm.Visible = true;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
-            tabControl.TabPages[4].Controls.Add(frm);
+            //tabControl.TabPages[4].Controls.Add(frm);
 
-          
+
+
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            label1.Visible = false;
 
             //MessageBox.Show(StatusLogin.ToString());
             label1.Text = StatusLogin.ToString();
@@ -118,7 +120,8 @@ namespace VideoRental
                 LoadTabDiskManager();
                 LoadTabCustomer();
                 // LoadTabTitle();
-                
+                //tabControl.TabPages[4].Hide();
+
             }
             
         }
