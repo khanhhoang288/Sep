@@ -43,9 +43,14 @@
             this.dtGvCustomer = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbLoaiBaoCao = new System.Windows.Forms.ComboBox();
+            this.btnXemBC = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGvCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -192,11 +197,52 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
+            // cmbLoaiBaoCao
+            // 
+            this.cmbLoaiBaoCao.FormattingEnabled = true;
+            this.cmbLoaiBaoCao.Location = new System.Drawing.Point(99, 28);
+            this.cmbLoaiBaoCao.Name = "cmbLoaiBaoCao";
+            this.cmbLoaiBaoCao.Size = new System.Drawing.Size(182, 21);
+            this.cmbLoaiBaoCao.TabIndex = 16;
+            this.cmbLoaiBaoCao.SelectedIndexChanged += new System.EventHandler(this.btnLoaiBaoCao_SelectedIndexChanged);
+            // 
+            // btnXemBC
+            // 
+            this.btnXemBC.Location = new System.Drawing.Point(99, 56);
+            this.btnXemBC.Name = "btnXemBC";
+            this.btnXemBC.Size = new System.Drawing.Size(75, 23);
+            this.btnXemBC.TabIndex = 17;
+            this.btnXemBC.Text = "Xem";
+            this.btnXemBC.UseVisualStyleBackColor = true;
+            this.btnXemBC.Click += new System.EventHandler(this.btnXemBC_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.cmbLoaiBaoCao);
+            this.groupBox3.Controls.Add(this.btnXemBC);
+            this.groupBox3.Location = new System.Drawing.Point(485, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(287, 173);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chọn Loại Báo Cáo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Loại Báo Cáo";
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtGvCustomer);
@@ -207,6 +253,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +276,9 @@
         private System.Windows.Forms.DataGridView dtGvCustomer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cmbLoaiBaoCao;
+        private System.Windows.Forms.Button btnXemBC;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label5;
     }
 }

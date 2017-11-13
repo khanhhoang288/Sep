@@ -22,8 +22,7 @@ namespace VideoRental
         {
             // TODO: This line of code loads data into the 'dataSet1.View_7bfinal' table. You can move, or remove it, as needed.
             this.view_7bfinalTableAdapter.Fill(this.dataSet1.View_7bfinal);
-            // TODO: This line of code loads data into the 'dataSet1.View_7b' table. You can move, or remove it, as needed.
-            this.view_7bTableAdapter.Fill(this.dataSet1.View_7b);
+            
 
             this.reportViewer1.RefreshReport();
            SetParameters(cbidcus.SelectedValue.ToString());

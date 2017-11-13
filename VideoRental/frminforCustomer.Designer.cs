@@ -30,28 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tbl_CustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.VideoRentalDataSet4 = new VideoRental.VideoRentalDataSet4();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tbl_CustomerTableAdapter = new VideoRental.VideoRentalDataSet4TableAdapters.tbl_CustomerTableAdapter();
             this.DataSet1 = new VideoRental.DataSet1();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_CustomerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoRentalDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.tbl_CustomerBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "VideoRental.CustomerInfor.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(898, 317);
-            this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // tbl_CustomerBindingSource
             // 
@@ -62,6 +49,20 @@
             // 
             this.VideoRentalDataSet4.DataSetName = "VideoRentalDataSet4";
             this.VideoRentalDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.tbl_CustomerBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "VideoRental.CustomerInfor.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(784, 461);
+            this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // tbl_CustomerTableAdapter
             // 
@@ -74,10 +75,11 @@
             // 
             // frminforCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 317);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.reportViewer1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frminforCustomer";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

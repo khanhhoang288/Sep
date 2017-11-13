@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BLL;
+using Microsoft.Reporting.WinForms;
 
 namespace VideoRental
 {
@@ -51,7 +52,11 @@ namespace VideoRental
 
         private void frmCustomer_Load(object sender, EventArgs e)
         {
-            
+            cmbLoaiBaoCao.Items.Add("Báo Cáo Thông Tin Khách Hàng");
+            cmbLoaiBaoCao.Items.Add("Báo Cáo  Số Đĩa Hiện Tại Của Khách Mượnt");
+            cmbLoaiBaoCao.Items.Add("Báo Cáo Thông Tin Đĩa Quá Hạn");
+            cmbLoaiBaoCao.SelectedIndex = 0;
+            this.cmbLoaiBaoCao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         }
 
         private void dtGvCustomer_SelectionChanged(object sender, EventArgs e)
@@ -113,6 +118,33 @@ namespace VideoRental
             LoadDataGridView(dtGvCustomer, khbll.GetAllCustomer());
            
 
+        }
+
+        private void btnLoaiBaoCao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXemBC_Click(object sender, EventArgs e)
+        {
+            if (cmbLoaiBaoCao.Text == "Báo Cáo Thông Tin Khách Hàng")
+            {
+                frminforCustomer f = new frminforCustomer();
+                f.Show();
+            }
+            else if (cmbLoaiBaoCao.Text == "Báo Cáo  Số Đĩa Hiện Tại Của Khách Mượn")
+            {
+                frmInforDiskRental f1 = new frmInforDiskRental();
+                f1.Show();
+            }
+
+            else if (cmbLoaiBaoCao.Text == "Báo Cáo Thông Tin Đĩa Quá Hạn")
+            {
+                Frm7c f2 = new Frm7c();
+                f2.Show();
+            }
+            //Frm7c f1 = new Frm7c();
+            //f1.Show();
         }
     }
 }

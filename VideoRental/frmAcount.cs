@@ -42,8 +42,9 @@ namespace VideoRental
 
                 frmnew.ShowDialog();
 
-                frmTitle frmtitle = new frmTitle();
-               // frmtitle.StatusLogin = ;
+                frmTitle ftitle = new frmTitle();
+                // frmtitle.StatusLogin = ;
+                ftitle.StatusLoginTitle = 1;
 
             }
         }

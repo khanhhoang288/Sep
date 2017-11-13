@@ -60,8 +60,8 @@
             // 
             this.panel1.Controls.Add(this.reportViewer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 69);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 105);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(802, 356);
             this.panel1.TabIndex = 0;
@@ -74,7 +74,7 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "VideoRental.7cReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(802, 356);
             this.reportViewer1.TabIndex = 0;
@@ -86,7 +86,7 @@
             this.cbcustomername7c.DisplayMember = "CustomerName";
             this.cbcustomername7c.FormattingEnabled = true;
             this.cbcustomername7c.Location = new System.Drawing.Point(146, 20);
-            this.cbcustomername7c.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbcustomername7c.Margin = new System.Windows.Forms.Padding(2);
             this.cbcustomername7c.Name = "cbcustomername7c";
             this.cbcustomername7c.Size = new System.Drawing.Size(200, 21);
             this.cbcustomername7c.TabIndex = 1;
@@ -105,7 +105,7 @@
             // btntk
             // 
             this.btntk.Location = new System.Drawing.Point(405, 20);
-            this.btntk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntk.Margin = new System.Windows.Forms.Padding(2);
             this.btntk.Name = "btntk";
             this.btntk.Size = new System.Drawing.Size(68, 19);
             this.btntk.TabIndex = 2;
@@ -121,11 +121,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 425);
+            this.ClientSize = new System.Drawing.Size(802, 461);
             this.Controls.Add(this.btntk);
             this.Controls.Add(this.cbcustomername7c);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm7c";
             this.Text = "Frm7c";
             this.Load += new System.EventHandler(this.Frm7c_Load);

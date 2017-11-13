@@ -18,9 +18,9 @@ namespace VideoRental
         List<eTitle> listtitle;
         TitleBLL titlebll;
 
-        private bool statusLoginTitle;
+        private int statusLoginTitle;
 
-        public bool StatusLoginTitle
+        public int StatusLoginTitle
         {
             get
             {
@@ -41,6 +41,7 @@ namespace VideoRental
 
             listtitle = titlebll.getAllTitle();
             LoadDataGridView(dgvTitle, listtitle);
+            //MessageBox.Show(StatusLoginTitle.ToString());
         }
 
         private void frmTitle_Load(object sender, EventArgs e)
@@ -48,10 +49,23 @@ namespace VideoRental
             lblID.Visible = true;
             txtTitleStatus.Text = "0";
 
-           // int a = StatusLogin;
+            // int a = StatusLogin;
             //MessageBox.Show(a.ToString());
 
-           // btnDelete.Visible = true;
+            // btnDelete.Visible = true;
+
+            //bool b = StatusLoginTitle();
+            label6.Text = StatusLoginTitle.ToString();
+            //MessageBox.Show(label6.Text);
+            if (StatusLoginTitle==1)
+            {
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnDelete.Visible = true;
+            }
+            
         }
 
         public void LoadDataGridView(DataGridView dgv, List<eTitle> l)

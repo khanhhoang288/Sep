@@ -28,17 +28,18 @@ namespace VideoRental
             }
         }
 
+        
+
         public frmMain()
         {
             InitializeComponent();
-            LoadTabRental();
-            LoadTabReturn();
-            LoadTabDiskManager();
-            LoadTabCustomer();
+     
+           
         }
 
         private void LoadTabRental()
         {
+
             frmRental frm = new frmRental();
             frm.TopLevel = false;
             frm.Visible = true;
@@ -83,10 +84,8 @@ namespace VideoRental
             frmAcount f = new frmAcount();
             f.Show();
         }
-
-        private void frmMain_Load(object sender, EventArgs e)
+        private void LoadTabTitle()
         {
-
             frmTitle frm = new frmTitle();
             frm.TopLevel = false;
             frm.Visible = true;
@@ -94,7 +93,34 @@ namespace VideoRental
             frm.Dock = DockStyle.Fill;
             tabControl.TabPages[4].Controls.Add(frm);
 
+          
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
             //MessageBox.Show(StatusLogin.ToString());
+            label1.Text = StatusLogin.ToString();
+
+            //MessageBox.Show(label1.Text);
+            if (statusLogin==1)
+            {
+                LoadTabRental();
+                LoadTabReturn();
+                LoadTabDiskManager();
+                LoadTabCustomer();
+                LoadTabTitle();
+            }
+            else
+            {
+                LoadTabRental();
+                LoadTabReturn();
+                LoadTabDiskManager();
+                LoadTabCustomer();
+                // LoadTabTitle();
+                
+            }
+            
         }
     }
 }
