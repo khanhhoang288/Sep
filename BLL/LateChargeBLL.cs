@@ -36,6 +36,33 @@ namespace BLL
             return ls;
         }
 
+
+        public eLateCharge getOneLateCharge(int cid, int did)
+        {
+            eLateCharge e = new eLateCharge();
+
+            var item = db.tbl_LateCharges.Where(x => x.CustomerID == cid && x.DiskID == did).FirstOrDefault();
+
+            e.LateChargeID = item.LateChargeID;
+            e.CustomerID = Convert.ToInt32( item.CustomerID);
+            e.DiskID = Convert.ToInt32( item.DiskID);
+            e.LateCharge = Convert.ToInt32(item.LateCharge);
+
+            return e;
+        }
+
+        public void addLateCharge(eLateCharge el)
+        {
+
+
+            var item = db.tbl_LateCharges.Where(x => x.LateChargeID == el.LateChargeID).FirstOrDefault();
+            item.LateChargeID = el.LateChargeID;
+            item.CustomerID = Convert.ToInt32(el.CustomerID);
+            item.DiskID = Convert.ToInt32(el.DiskID);
+            item.LateCharge = 10000;
+
+            db.SubmitChanges();
+        }
         public void updateLatecharFee(int lid)
         {
             var item = db.tbl_LateCharges.Where(x => x.LateChargeID == lid).FirstOrDefault();

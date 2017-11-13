@@ -68,6 +68,7 @@ namespace VideoRental
         {
             // TODO: This line of code loads data into the 'videoRentalDataSet1.tbl_DiskRental' table. You can move, or remove it, as needed.
             //LoadDataGridView();
+            this.cmbDiskID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             label1.Text =  Rentalid.ToString();
             btnAdd.Visible = status;
             btnDelete.Visible = false;
@@ -77,6 +78,7 @@ namespace VideoRental
             LoadDataGridView1(dgvDiskRental, listdiskrental);
             txtSumRentCharge.Text = "0";
             LoadComboBox();
+
 
         }
 
