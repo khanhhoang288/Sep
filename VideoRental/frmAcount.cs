@@ -38,11 +38,19 @@ namespace VideoRental
                 
                 // show form Main
                 frmMain frmnew = new frmMain();
-                
+                frmnew.StatusLogin = 1;
 
                 frmnew.ShowDialog();
 
+                frmTitle frmtitle = new frmTitle();
+               // frmtitle.StatusLogin = ;
+
             }
+        }
+
+        private void frmAcount_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,8 +33,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Location = new System.Drawing.Point(-2, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -90,6 +93,16 @@
             this.tabPage4.Text = "Quản Lý Khách Hàng";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(802, 476);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Quản Lý Tiêu Đề Đĩa";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(733, 2);
@@ -109,16 +122,27 @@
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "label1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(489, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 526);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tabControl);
             this.Name = "frmMain";
             this.Text = "Video Rental Store System";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,6 +158,8 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label1;
     }
 }
 

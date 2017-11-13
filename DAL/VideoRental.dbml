@@ -97,4 +97,27 @@
       <Association Name="tbl_Title_tbl_ReservationTitle" Member="tbl_ReservationTitles" ThisKey="TitleID" OtherKey="TitleID" Type="tbl_ReservationTitle" />
     </Type>
   </Table>
+  <Table Name="dbo.View_7bfinal" Member="View_7bfinals">
+    <Type Name="View_7bfinal">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RentalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Expr1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Expr2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_7c" Member="View_7cs">
+    <Type Name="View_7c">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TitleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expr1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expr2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LateCharge" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

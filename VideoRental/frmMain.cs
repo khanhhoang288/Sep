@@ -12,6 +12,22 @@ namespace VideoRental
 {
     public partial class frmMain : Form
     {
+
+        private int statusLogin;
+
+        public int StatusLogin
+        {
+            get
+            {
+                return statusLogin;
+            }
+
+            set
+            {
+                statusLogin = value;
+            }
+        }
+
         public frmMain()
         {
             InitializeComponent();
@@ -29,6 +45,7 @@ namespace VideoRental
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
             tabControl.TabPages[0].Controls.Add(frm);
+            //MessageBox.Show(StatusLogin.ToString());
         }
 
         private void LoadTabReturn()
@@ -65,6 +82,19 @@ namespace VideoRental
         {
             frmAcount f = new frmAcount();
             f.Show();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+            frmTitle frm = new frmTitle();
+            frm.TopLevel = false;
+            frm.Visible = true;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            tabControl.TabPages[4].Controls.Add(frm);
+
+            //MessageBox.Show(StatusLogin.ToString());
         }
     }
 }

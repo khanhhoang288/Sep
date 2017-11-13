@@ -17,6 +17,22 @@ namespace VideoRental
     {
         List<eTitle> listtitle;
         TitleBLL titlebll;
+
+        private bool statusLoginTitle;
+
+        public bool StatusLoginTitle
+        {
+            get
+            {
+                return statusLoginTitle;
+            }
+
+            set
+            {
+                statusLoginTitle = value;
+            }
+        }
+
         public frmTitle()
         {
             InitializeComponent();
@@ -31,6 +47,11 @@ namespace VideoRental
         {
             lblID.Visible = true;
             txtTitleStatus.Text = "0";
+
+           // int a = StatusLogin;
+            //MessageBox.Show(a.ToString());
+
+           // btnDelete.Visible = true;
         }
 
         public void LoadDataGridView(DataGridView dgv, List<eTitle> l)

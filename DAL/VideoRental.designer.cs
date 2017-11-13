@@ -171,6 +171,22 @@ namespace DAL
 				return this.GetTable<tbl_Title>();
 			}
 		}
+		
+		public System.Data.Linq.Table<View_7bfinal> View_7bfinals
+		{
+			get
+			{
+				return this.GetTable<View_7bfinal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_7c> View_7cs
+		{
+			get
+			{
+				return this.GetTable<View_7c>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Customer")]
@@ -2149,6 +2165,294 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Title = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.View_7bfinal")]
+	public partial class View_7bfinal
+	{
+		
+		private int _CustomerID;
+		
+		private string _CustomerName;
+		
+		private string _Address;
+		
+		private string _PhoneNumber;
+		
+		private int _RentalID;
+		
+		private int _Expr1;
+		
+		private int _DiskID;
+		
+		private System.Nullable<int> _Expr2;
+		
+		public View_7bfinal()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int NOT NULL")]
+		public int CustomerID
+		{
+			get
+			{
+				return this._CustomerID;
+			}
+			set
+			{
+				if ((this._CustomerID != value))
+				{
+					this._CustomerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(50)")]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this._CustomerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(50)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(20)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this._PhoneNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RentalID", DbType="Int NOT NULL")]
+		public int RentalID
+		{
+			get
+			{
+				return this._RentalID;
+			}
+			set
+			{
+				if ((this._RentalID != value))
+				{
+					this._RentalID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr1", DbType="Int NOT NULL")]
+		public int Expr1
+		{
+			get
+			{
+				return this._Expr1;
+			}
+			set
+			{
+				if ((this._Expr1 != value))
+				{
+					this._Expr1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiskID", DbType="Int NOT NULL")]
+		public int DiskID
+		{
+			get
+			{
+				return this._DiskID;
+			}
+			set
+			{
+				if ((this._DiskID != value))
+				{
+					this._DiskID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr2", DbType="Int")]
+		public System.Nullable<int> Expr2
+		{
+			get
+			{
+				return this._Expr2;
+			}
+			set
+			{
+				if ((this._Expr2 != value))
+				{
+					this._Expr2 = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.View_7c")]
+	public partial class View_7c
+	{
+		
+		private int _CustomerID;
+		
+		private string _CustomerName;
+		
+		private int _DiskID;
+		
+		private System.Nullable<int> _TitleID;
+		
+		private System.Nullable<int> _Expr1;
+		
+		private System.Nullable<int> _Expr2;
+		
+		private System.Nullable<decimal> _LateCharge;
+		
+		public View_7c()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int NOT NULL")]
+		public int CustomerID
+		{
+			get
+			{
+				return this._CustomerID;
+			}
+			set
+			{
+				if ((this._CustomerID != value))
+				{
+					this._CustomerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(50)")]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this._CustomerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiskID", DbType="Int NOT NULL")]
+		public int DiskID
+		{
+			get
+			{
+				return this._DiskID;
+			}
+			set
+			{
+				if ((this._DiskID != value))
+				{
+					this._DiskID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TitleID", DbType="Int")]
+		public System.Nullable<int> TitleID
+		{
+			get
+			{
+				return this._TitleID;
+			}
+			set
+			{
+				if ((this._TitleID != value))
+				{
+					this._TitleID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr1", DbType="Int")]
+		public System.Nullable<int> Expr1
+		{
+			get
+			{
+				return this._Expr1;
+			}
+			set
+			{
+				if ((this._Expr1 != value))
+				{
+					this._Expr1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr2", DbType="Int")]
+		public System.Nullable<int> Expr2
+		{
+			get
+			{
+				return this._Expr2;
+			}
+			set
+			{
+				if ((this._Expr2 != value))
+				{
+					this._Expr2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LateCharge", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> LateCharge
+		{
+			get
+			{
+				return this._LateCharge;
+			}
+			set
+			{
+				if ((this._LateCharge != value))
+				{
+					this._LateCharge = value;
+				}
+			}
 		}
 	}
 }
