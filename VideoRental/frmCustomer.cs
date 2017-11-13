@@ -35,6 +35,7 @@ namespace VideoRental
             dtGvCustomer.Columns[1].HeaderText = "Mã Khách Hàng";
             dtGvCustomer.Columns[2].HeaderText = "Tên Khách Hàng";
             dtGvCustomer.Columns[3].HeaderText = "Phone Number";
+
         }
 
 
@@ -50,14 +51,14 @@ namespace VideoRental
 
         private void frmCustomer_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dtGvCustomer_SelectionChanged(object sender, EventArgs e)
         {
-            txtCustomerID.Text = dtGvCustomer.CurrentRow.Cells[0].Value.ToString();
-            txtCustomerName.Text = dtGvCustomer.CurrentRow.Cells[1].Value.ToString();
-            txtAddress.Text = dtGvCustomer.CurrentRow.Cells[2].Value.ToString();
+            txtCustomerID.Text = dtGvCustomer.CurrentRow.Cells[1].Value.ToString();
+            txtCustomerName.Text = dtGvCustomer.CurrentRow.Cells[2].Value.ToString();
+            txtAddress.Text = dtGvCustomer.CurrentRow.Cells[0].Value.ToString();
             txtPhoneNumber.Text = dtGvCustomer.CurrentRow.Cells[3].Value.ToString();
 
         }

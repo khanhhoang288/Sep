@@ -60,5 +60,11 @@ namespace VideoRental
             frm.Dock = DockStyle.Fill;
             tabControl.TabPages[3].Controls.Add(frm);
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmAcount f = new frmAcount();
+            f.Show();
+        }
     }
 }

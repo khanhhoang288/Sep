@@ -86,9 +86,35 @@ namespace VideoRental
                 return false;
             }
 
-            if (lblRentalID.Text== "lblRentalID")
+           
+
+
+            try
             {
-                MessageBox.Show("ban chua chon ban thua nao");
+                Int32 n = Convert.ToInt32(cmbCustomerID.Text);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("so txtRentalPeriod qua lon");
+                cmbCustomerID.Text="";
+                cmbCustomerID.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        public bool checkInput1()
+        {
+            if (cmbCustomerID.Text.Trim() == "")
+            {
+                MessageBox.Show("ban chua nhap title name");
+                cmbCustomerID.Focus();
+                return false;
+            }
+
+            if (lblRentalID.Text == "lblRentalID")
+            {
+                MessageBox.Show("ban chua chon ban thue nao");
                 cmbCustomerID.Focus();
                 return false;
             }
@@ -101,7 +127,7 @@ namespace VideoRental
             catch (OverflowException)
             {
                 MessageBox.Show("so txtRentalPeriod qua lon");
-                cmbCustomerID.Text="";
+                cmbCustomerID.Text = "";
                 cmbCustomerID.Focus();
                 return false;
             }
@@ -141,6 +167,10 @@ namespace VideoRental
             //LoadDataGridView(dgvRental, rentalbll.getAllRental());
 
             LoadDataGridView(dgvRental, rentalbll.getRentalByCustomerID(Convert.ToInt32(cmbCustomerID.Text)));
+
+            eRental ren1 = new eRental();
+            ren1.RentalID = rentalbll.maxRentalID();
+
             frmDiskRental child = new frmDiskRental();
             child.Rentalid = Convert.ToInt32( rentalbll.maxRentalID().ToString());
             child.Status = true;
@@ -242,6 +272,7 @@ namespace VideoRental
         {
             eCustomer ec = new eCustomer();
             ec = cbll.getOneCustomer(Convert.ToInt32(cmbCustomerID.Text));
+            cmbCustomerID.Text = ec.CustomerID.ToString();
             lblCustomerName.Text = ec.CustomerName;
             lblAddress.Text = ec.Address;
             lblPhone.Text = ec.PhoneNumber;
@@ -265,7 +296,7 @@ namespace VideoRental
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            if (checkInput()==true)
+            if (checkInput1()==true)
             {
                 eRental rental = new eRental();
 

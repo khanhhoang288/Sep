@@ -44,6 +44,9 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblDiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoRentalDataSet)).BeginInit();
@@ -107,7 +110,7 @@
             // lblDiskID
             // 
             this.lblDiskID.AutoSize = true;
-            this.lblDiskID.Location = new System.Drawing.Point(46, 25);
+            this.lblDiskID.Location = new System.Drawing.Point(43, 9);
             this.lblDiskID.Name = "lblDiskID";
             this.lblDiskID.Size = new System.Drawing.Size(35, 13);
             this.lblDiskID.TabIndex = 1;
@@ -115,21 +118,21 @@
             // 
             // txtTitleID
             // 
-            this.txtTitleID.Location = new System.Drawing.Point(130, 48);
+            this.txtTitleID.Location = new System.Drawing.Point(102, 70);
             this.txtTitleID.Name = "txtTitleID";
             this.txtTitleID.Size = new System.Drawing.Size(100, 20);
             this.txtTitleID.TabIndex = 2;
             // 
             // txtDiskStatus
             // 
-            this.txtDiskStatus.Location = new System.Drawing.Point(272, 48);
+            this.txtDiskStatus.Location = new System.Drawing.Point(253, 70);
             this.txtDiskStatus.Name = "txtDiskStatus";
             this.txtDiskStatus.Size = new System.Drawing.Size(100, 20);
             this.txtDiskStatus.TabIndex = 2;
             // 
             // txtDiskCode
             // 
-            this.txtDiskCode.Location = new System.Drawing.Point(432, 48);
+            this.txtDiskCode.Location = new System.Drawing.Point(413, 70);
             this.txtDiskCode.Name = "txtDiskCode";
             this.txtDiskCode.Size = new System.Drawing.Size(100, 20);
             this.txtDiskCode.TabIndex = 2;
@@ -164,11 +167,41 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(117, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "title id";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(276, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "disk status";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(442, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "disk code";
+            // 
             // frmDiskManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -205,5 +238,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

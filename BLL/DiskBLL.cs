@@ -36,6 +36,8 @@ namespace BLL
             return ls;
         }
 
+
+
         public List<eDisk> getAllDisl()
         {
             List<eDisk> ls = new List<eDisk>();
